@@ -4,23 +4,29 @@ require_once 'vendor/autoload.php';
 
 use LionRequest\{ Json, Response };
 
-$data = ['name' => "Sergio Leon", 'age' => 22];
-
-$encode = Json::encode($data);
-$decode = Json::decode($encode);
+$response = Response::getInstance();
 
 var_dump(
-	Response::success('Efe')
+	$response->success('Efe')
 );
 
-var_dump(
-	Response::error('Efe')
-);
 
 var_dump(
-	Response::warning('Efe')
+	$response->success('Efe')
 );
 
-var_dump(
-	Response::info('Efe')
-);
+// var_dump(
+// 	Response::success('Efe')
+// );
+
+// var_dump(
+// 	Response::error('Efe')
+// );
+
+// var_dump(
+// 	Response::warning('Efe')
+// );
+
+// var_dump(
+// 	Response::info('Efe')
+// );
