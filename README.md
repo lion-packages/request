@@ -8,7 +8,39 @@ composer require lion-framework/lion-request
 ```
 
 ## Usage
-### 1 Response
+### 1. REQUEST
+The Request class allows us to return different data from different types of HTTP requests. <br>
+The request method obtains the data sent through an HTTP request.
+
+```php
+use LionRequest\Request;
+// HTTP (GET, POST, PUT, DELETE...)
+var_dump(Request::request());
+```
+
+They can create an object of the Request class and call the methods.
+
+```php
+use LionRequest\Request;
+
+$request = Request::getInstance();
+var_dump($request->request());
+```
+
+The Request class has support for getting environment variable data from .env
+
+```php
+use LionRequest\Request;
+
+var_dump(Request::env());
+
+// or
+
+$request = Request::getInstance();
+var_dump($request->env());
+```
+
+### 2. RESPONSE
 The Response class allows us to return different types of response, either for a successful response or for one with an error.
 
 ```php
@@ -34,7 +66,7 @@ var_dump($response->warning('my description'));
 var_dump($response->info('my description'));
 ```
 
-### 2. JSON
+### 3. JSON
 The Json class allows us to work with different data and properties either to encode them to a JSON format or decode them to an array format.
 
 ```php
