@@ -81,7 +81,7 @@ $decode = Json::decode($encode);
 var_dump($decode);
 ```
 
-4. HEADER
+### 4. HEADER
 The Request class allows us to create headers.
 ```php
 use LionRequest\Request;
