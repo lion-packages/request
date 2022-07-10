@@ -1,7 +1,6 @@
 # Lion-Request
 Library created to request input data and response requests
 
-
 ## Install
 ```shell
 composer require lion-framework/lion-request
@@ -9,9 +8,7 @@ composer require lion-framework/lion-request
 
 ## Usage
 ### 1. REQUEST
-The Request class allows us to return different data from different types of HTTP requests. <br>
-The request method obtains the data sent through an HTTP request.
-
+The Request class allows us to return different data from different types of HTTP requests, The request method obtains the data sent through an HTTP request.
 ```php
 use LionRequest\Request;
 // HTTP (GET, POST, PUT, DELETE...)
@@ -42,7 +39,6 @@ var_dump($request->env());
 
 ### 2. RESPONSE
 The Response class allows us to return different types of response, either for a successful response or for one with an error.
-
 ```php
 use LionRequest\Response;
 
@@ -68,7 +64,6 @@ var_dump($response->info('my description'));
 
 ### 3. JSON
 The Json class allows us to work with different data and properties either to encode them to a JSON format or decode them to an array format.
-
 ```php
 use LionRequest\Json;
 
@@ -84,4 +79,15 @@ var_dump($encode);
 ```php
 $decode = Json::decode($encode);
 var_dump($decode);
+```
+
+4. HEADER
+The Request class allows us to create headers.
+```php
+use LionRequest\Request;
+
+Request::header([
+	['type' => "Access-Control-Allow-Origin", 'value' => "*"]
+	['type' => "Content-Type", 'value' => "application/json; charset=UTF-8"]
+]);
 ```
