@@ -22,4 +22,11 @@ class Request {
         return (object) $_ENV;
     }
 
+    public static function header(array $headers): void {
+        foreach ($headers as $key => $header) {
+            $header = (object) $header;
+            header("{$header->type}: {$header->value}");
+        }
+    }
+
 }
