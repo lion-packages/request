@@ -8,12 +8,12 @@ class Response {
 
 	use Singleton;
 
+	public static function finish(string $response = null): void {
+		die($response);
+	}
+
 	public static function response(string $status, ?string $message = null, array|object $data = []): object {
-		return (object) [
-			'status' => $status,
-			'message' => $message,
-			'data' => $data
-		];
+		return (object) ['status' => $status, 'message' => $message, 'data' => $data];
 	}
 
 	public static function success(?string $message = null, array|object $data = []): object {
