@@ -31,8 +31,7 @@ var_dump(Request::env());
 
 // or
 
-$request = Request::getInstance();
-var_dump($request->env());
+var_dump(Request::getInstance()->env());
 ```
 
 ### 2. RESPONSE
