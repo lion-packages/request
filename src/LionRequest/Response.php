@@ -8,7 +8,7 @@ class Response {
 
 	use Singleton;
 
-	public static function finish(string $response = null): void {
+	public static function finish(string $response): void {
 		die($response);
 	}
 
