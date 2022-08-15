@@ -72,10 +72,8 @@ The Request class allows us to create headers
 ```php
 use LionRequest\Request;
 
-Request::header([
-	['type' => "Access-Control-Allow-Origin", 'value' => "*"]
-	['type' => "Content-Type", 'value' => "application/json; charset=UTF-8"]
-]);
+Request::header('Access-Control-Allow-Origin', '*');
+Request::header('Content-Type', 'application/json; charset=UTF-8');
 ```
 
 ### 5. FINISH
