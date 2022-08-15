@@ -8,7 +8,7 @@ class Request {
 
 	use Singleton;
 
-	public static function request(): object {
+	public static function capture(): object {
         $content = json_decode(file_get_contents("php://input"), true);
 
         if ($content === null) {
