@@ -18,11 +18,8 @@ class Request {
         return (object) $content;
     }
 
-    public static function header(array $headers): void {
-        foreach ($headers as $key => $header) {
-            $header = (object) $header;
-            header("{$header->type}: {$header->value}");
-        }
+    public static function header(string $type, string $value): void {
+        header("{$type}: {$value}");
     }
 
 }
