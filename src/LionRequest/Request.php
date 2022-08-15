@@ -18,10 +18,6 @@ class Request {
         return (object) $content;
     }
 
-    public static function env(): object {
-        return (object) $_ENV;
-    }
-
     public static function header(array $headers): void {
         foreach ($headers as $key => $header) {
             $header = (object) $header;
