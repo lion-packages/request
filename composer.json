@@ -16,8 +16,5 @@
     ],
     "require": {
         "php": ">=8.1"
-    },
-    "require-dev": {
-        "vlucas/phpdotenv": "^5.4"
     }
 }
