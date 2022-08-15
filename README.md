@@ -23,17 +23,6 @@ $request = Request::getInstance();
 var_dump($request->capture());
 ```
 
-The Request class has support for getting environment variable data from .env
-```php
-use LionRequest\Request;
-
-var_dump(Request::env());
-
-// or
-
-var_dump(Request::getInstance()->env());
-```
-
 ### 2. RESPONSE
 The Response class allows us to return different types of response, either for a successful response or for one with an error
 ```php
