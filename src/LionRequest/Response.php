@@ -2,14 +2,15 @@
 
 namespace LionRequest;
 
+use LionRequest\Json;
 use LionRequest\Traits\Singleton;
 
 class Response {
 
 	use Singleton;
 
-	public static function finish(string $response): void {
-		die($response);
+	public static function finish(mixed $response): void {
+		die(Json::encode($response));
 	}
 
 	public static function response(string $status, ?string $message = null, array|object $data = []): object {
