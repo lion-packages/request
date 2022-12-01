@@ -1,5 +1,5 @@
 {
-    "name": "lion-framework/lion-request",
+    "name": "lion/request",
     "description": "Library created to request input data and response requests",
     "type": "library",
     "license": "MIT",
