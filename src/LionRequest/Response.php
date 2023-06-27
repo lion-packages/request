@@ -13,6 +13,7 @@ class Response {
 
 	public static function code(int $code): Response {
 		self::$code = $code;
+		http_response_code($code);
 		return self::getInstance();
 	}
 
@@ -21,8 +22,6 @@ class Response {
 	}
 
 	public static function response(string $status, ?string $message = null, mixed $data = null): object {
-		http_response_code(self::$code);
-
 		if ($data != null) {
 			return (object) ['code' => self::$code, 'status' => $status, 'message' => $message, 'data' => $data];
 		}
