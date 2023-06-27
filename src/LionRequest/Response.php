@@ -9,12 +9,25 @@ class Response {
 
 	use Singleton;
 
+	private static int $code = 200;
+
+	public static function code(int $code): Response {
+		self::$code = $code;
+		return self::getInstance();
+	}
+
 	public static function finish(mixed $response): void {
 		die(Json::encode($response));
 	}
 
 	public static function response(string $status, ?string $message = null, array|object $data = []): object {
-		return (object) ['status' => $status, 'message' => $message, 'data' => $data];
+		http_response_code(self::$code);
+
+		if (count($data) > 0) {
+			return (object) ['code' => self::$code, 'status' => $status, 'message' => $message, 'data' => $data];
+		}
+
+		return (object) ['code' => self::$code, 'status' => $status, 'message' => $message];
 	}
 
 	public static function success(?string $message = null, array|object $data = []): object {
