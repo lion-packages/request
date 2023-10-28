@@ -11,7 +11,7 @@ class Response
 		die($isJson ? json_encode($response) : $response);
 	}
 
-	public static function response(
+	public static function custom(
         string $status,
         ?string $message = null,
         int $code = 200,
@@ -35,21 +35,21 @@ class Response
 
 	public static function success(?string $message = null, int $code = 200, mixed $data = null): object
     {
-		return self::response('success', $message, $code, $data);
+		return self::custom('success', $message, $code, $data);
 	}
 
 	public static function error(?string $message = null, int $code = 500, mixed $data = null): object
     {
-		return self::response('error', $message, $code, $data);
+		return self::custom('error', $message, $code, $data);
 	}
 
 	public static function warning(?string $message = null, int $code = 200, mixed $data = null): object
     {
-		return self::response('warning', $message, $code, $data);
+		return self::custom('warning', $message, $code, $data);
 	}
 
 	public static function info(?string $message = null, int $code = 200, mixed $data = null): object
     {
-		return self::response('info', $message, $code, $data);
+		return self::custom('info', $message, $code, $data);
 	}
 }
