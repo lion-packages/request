@@ -26,7 +26,7 @@ class Response
             'message' => $message
         ];
 
-		if ($data != null) {
+		if (!empty($data)) {
 			$response['data'] = $data;
 		}
 
