@@ -1,48 +1,55 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LionRequest;
 
-use LionRequest\Json;
-use LionRequest\Traits\Singleton;
-
-class Response {
-
-	use Singleton;
-
-	private static int $code = 200;
-
-	public static function code(int $code): Response {
-		self::$code = $code;
-		http_response_code($code);
-		return self::getInstance();
+class Response
+{
+	public static function finish(mixed $response, bool $isJson = true): void
+    {
+		die($isJson ? json_encode($response) : $response);
 	}
 
-	public static function finish(mixed $response): void {
-		die(Json::encode($response));
-	}
+	public static function custom(
+        string $status,
+        ?string $message = null,
+        int $code = 200,
+        mixed $data = null
+    ): object
+    {
+        http_response_code($code);
 
-	public static function response(string $status, ?string $message = null, mixed $data = null): object {
-		if ($data != null) {
-			return (object) ['code' => self::$code, 'status' => $status, 'message' => $message, 'data' => $data];
+        $response = [
+            'code' => $code,
+            'status' => $status,
+            'message' => $message
+        ];
+
+		if (!empty($data)) {
+			$response['data'] = $data;
 		}
 
-		return (object) ['code' => self::$code, 'status' => $status, 'message' => $message];
+		return (object) $response;
 	}
 
-	public static function success(?string $message = null, mixed $data = null): object {
-		return self::response('success', $message, $data);
+	public static function success(?string $message = null, int $code = 200, mixed $data = null): object
+    {
+		return self::custom('success', $message, $code, $data);
 	}
 
-	public static function error(?string $message = null, mixed $data = null): object {
-		return self::response('error', $message, $data);
+	public static function error(?string $message = null, int $code = 500, mixed $data = null): object
+    {
+		return self::custom('error', $message, $code, $data);
 	}
 
-	public static function warning(?string $message = null, mixed $data = null): object {
-		return self::response('warning', $message, $data);
+	public static function warning(?string $message = null, int $code = 200, mixed $data = null): object
+    {
+		return self::custom('warning', $message, $code, $data);
 	}
 
-	public static function info(?string $message = null, mixed $data = null): object {
-		return self::response('info', $message, $data);
+	public static function info(?string $message = null, int $code = 200, mixed $data = null): object
+    {
+		return self::custom('info', $message, $code, $data);
 	}
-
 }
