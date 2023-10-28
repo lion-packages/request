@@ -14,7 +14,7 @@ class ResponseTest extends TestCase
 
     public function testResponse()
     {
-        $res = $this->response->response('custom', null, 200);
+        $res = $this->response->custom('custom', null, 200);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -27,7 +27,7 @@ class ResponseTest extends TestCase
 
     public function testResponseWithData()
     {
-        $res = $this->response->response('custom', null, 200, ['package' => 'request']);
+        $res = $this->response->custom('custom', null, 200, ['package' => 'request']);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
