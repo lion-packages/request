@@ -4,9 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eac48d4efcd8642463cf1e5983b9e596",
+    "content-hash": "4e6398f33aef97d5d4525e058385584d",
     "packages": [],
     "packages-dev": [
+        {
+            "name": "lion/test",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lion-packages/test.git",
+                "reference": "c0eed0c33478b27a521258c94b053dd68d8e7bbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lion-packages/test/zipball/c0eed0c33478b27a521258c94b053dd68d8e7bbc",
+                "reference": "c0eed0c33478b27a521258c94b053dd68d8e7bbc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lion\\Test\\": "src/LionTest/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "library to implement testing with helpers that allow easy testing with PHPUnit",
+            "support": {
+                "issues": "https://github.com/lion-packages/test/issues",
+                "source": "https://github.com/lion-packages/test/tree/v1.4.0"
+            },
+            "time": "2024-01-09T14:44:37+00:00"
+        },
         {
             "name": "myclabs/deep-copy",
             "version": "1.11.1",
