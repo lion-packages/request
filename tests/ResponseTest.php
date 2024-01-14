@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use LionRequest\Response;
+use Lion\Request\Response;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
