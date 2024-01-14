@@ -17,10 +17,10 @@
 
 ## Install
 
-```shell
+```bash
 composer require lion/request
 ```
 
 ## License
 
-The Lion-Request is open-sourced software licensed under the [MIT License](https://github.com/Sleon4/Lion-Request/blob/main/LICENSE).
+The <strong>request</strong> is open-sourced software licensed under the [MIT License](https://github.com/lion-packages/request/blob/main/LICENSE).
