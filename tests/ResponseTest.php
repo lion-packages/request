@@ -4,15 +4,20 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use LionRequest\Response;
-use PHPUnit\Framework\TestCase;
+use Lion\Request\Response;
+use Lion\Test\Test;
 use stdClass;
 
-class ResponseTest extends TestCase
+class ResponseTest extends Test
 {
     private Response $response;
 
-    public function testResponse()
+    protected function setUp(): void
+    {
+        $this->response = new Response();
+    }
+
+    public function testResponse(): void
     {
         $res = $this->response->custom('custom', null, 200);
 
@@ -25,7 +30,7 @@ class ResponseTest extends TestCase
         $this->assertSame(200, $res->code);
     }
 
-    public function testResponseWithData()
+    public function testResponseWithData(): void
     {
         $res = $this->response->custom('custom', null, 200, ['package' => 'request']);
 
@@ -40,7 +45,7 @@ class ResponseTest extends TestCase
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
-    public function testSuccess()
+    public function testSuccess(): void
     {
         $res = $this->response->success(null, 200, ['package' => 'request']);
 
@@ -55,7 +60,7 @@ class ResponseTest extends TestCase
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
-    public function testError()
+    public function testError(): void
     {
         $res = $this->response->error(null, 500, ['package' => 'request']);
 
@@ -70,7 +75,7 @@ class ResponseTest extends TestCase
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
-    public function testWarning()
+    public function testWarning(): void
     {
         $res = $this->response->warning(null, 200, ['package' => 'request']);
 
@@ -85,7 +90,7 @@ class ResponseTest extends TestCase
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
-    public function testInfo()
+    public function testInfo(): void
     {
         $res = $this->response->info(null, 200, ['package' => 'request']);
 
@@ -98,10 +103,5 @@ class ResponseTest extends TestCase
         $this->assertSame(null, $res->message);
         $this->assertSame(200, $res->code);
         $this->assertSame(['package' => 'request'], $res->data);
-    }
-
-    public function setUp(): void
-    {
-        $this->response = new Response();
     }
 }

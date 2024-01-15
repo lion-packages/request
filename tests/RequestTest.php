@@ -4,21 +4,21 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use LionRequest\Request;
-use PHPUnit\Framework\TestCase;
+use Lion\Request\Request;
+use Lion\Test\Test;
 use stdClass;
 
-class RequestTest extends TestCase
+class RequestTest extends Test
 {
     private Request $request;
 
-    public function testCapture()
-    {
-        $this->assertInstanceOf(stdClass::class, $this->request->capture());
-    }
-
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->request = new Request();
+    }
+
+    public function testCapture(): void
+    {
+        $this->assertInstanceOf(stdClass::class, $this->request->capture());
     }
 }

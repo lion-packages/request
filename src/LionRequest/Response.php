@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LionRequest;
+namespace Lion\Request;
 
 class Response
 {

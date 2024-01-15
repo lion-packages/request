@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace LionRequest;
+namespace Lion\Request;
 
 class Request
 {
 	public static function capture(): object
     {
         $content = json_decode(file_get_contents("php://input"), true);
+
         return $content === null ? ((object) [...$_POST, ...$_FILES, ...$_GET]) : ((object) $content);
     }
 
