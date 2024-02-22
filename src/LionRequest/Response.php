@@ -6,6 +6,16 @@ namespace Lion\Request;
 
 class Response
 {
+    const SUCCESS = 'success';
+    const ERROR = 'error';
+    const WARNING = 'warning';
+    const INFO = 'info';
+    const DATABASE_ERROR = 'database-error';
+    const SESSION_ERROR = 'session-error';
+    const ROUTE_ERROR = 'route-error';
+    const FILE_ERROR = 'file-error';
+    const MAIL_ERROR = 'mail-error';
+
 	public static function finish(mixed $response, bool $isJson = true): void
     {
 		die($isJson ? json_encode($response) : $response);
@@ -14,7 +24,7 @@ class Response
 	public static function custom(
         string $status,
         ?string $message = null,
-        int $code = 200,
+        int $code = Request::OK,
         mixed $data = null
     ): object
     {
@@ -33,23 +43,23 @@ class Response
 		return (object) $response;
 	}
 
-	public static function success(?string $message = null, int $code = 200, mixed $data = null): object
+	public static function success(?string $message = null, int $code = Request::OK, mixed $data = null): object
     {
-		return self::custom('success', $message, $code, $data);
+		return self::custom(self::SUCCESS, $message, $code, $data);
 	}
 
-	public static function error(?string $message = null, int $code = 500, mixed $data = null): object
+	public static function error(?string $message = null, int $code = Request::INTERNAL_SERVER_ERROR, mixed $data = null): object
     {
-		return self::custom('error', $message, $code, $data);
+		return self::custom(self::ERROR, $message, $code, $data);
 	}
 
-	public static function warning(?string $message = null, int $code = 200, mixed $data = null): object
+	public static function warning(?string $message = null, int $code = Request::OK, mixed $data = null): object
     {
-		return self::custom('warning', $message, $code, $data);
+		return self::custom(self::WARNING, $message, $code, $data);
 	}
 
-	public static function info(?string $message = null, int $code = 200, mixed $data = null): object
+	public static function info(?string $message = null, int $code = Request::OK, mixed $data = null): object
     {
-		return self::custom('info', $message, $code, $data);
+		return self::custom(self::INFO, $message, $code, $data);
 	}
 }
