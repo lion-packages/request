@@ -75,6 +75,23 @@ class Response
     const MAIL_ERROR = 'mail-error';
 
     /**
+     * Returns an array with the available error types
+     *
+     * @return array<string>
+     */
+    public function getErrors(): array
+    {
+        return [
+            self::ERROR,
+            self::DATABASE_ERROR,
+            self::FILE_ERROR,
+            self::MAIL_ERROR,
+            self::ROUTE_ERROR,
+            self::SESSION_ERROR
+        ];
+    }
+
+    /**
      * stops the execution of the process where the call is made and displays
      * a response
      *
