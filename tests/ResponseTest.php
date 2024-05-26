@@ -36,7 +36,7 @@ class ResponseTest extends Test
 
     public function testResponse(): void
     {
-        $res = $this->response->custom('custom', null, Http::HTTP_OK);
+        $res = $this->response->custom('custom', null, Http::OK);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -44,12 +44,12 @@ class ResponseTest extends Test
         $this->assertObjectHasProperty('code', $res);
         $this->assertSame('custom', $res->status);
         $this->assertSame(null, $res->message);
-        $this->assertSame(Http::HTTP_OK, $res->code);
+        $this->assertSame(Http::OK, $res->code);
     }
 
     public function testResponseWithData(): void
     {
-        $res = $this->response->custom('custom', null, Http::HTTP_OK, ['package' => 'request']);
+        $res = $this->response->custom('custom', null, Http::OK, ['package' => 'request']);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -58,13 +58,13 @@ class ResponseTest extends Test
         $this->assertObjectHasProperty('data', $res);
         $this->assertSame('custom', $res->status);
         $this->assertSame(null, $res->message);
-        $this->assertSame(Http::HTTP_OK, $res->code);
+        $this->assertSame(Http::OK, $res->code);
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
     public function testSuccess(): void
     {
-        $res = $this->response->success(null, Http::HTTP_OK, ['package' => 'request']);
+        $res = $this->response->success(null, Http::OK, ['package' => 'request']);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -73,13 +73,13 @@ class ResponseTest extends Test
         $this->assertObjectHasProperty('data', $res);
         $this->assertSame(Status::SUCCESS, $res->status);
         $this->assertSame(null, $res->message);
-        $this->assertSame(Http::HTTP_OK, $res->code);
+        $this->assertSame(Http::OK, $res->code);
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
     public function testError(): void
     {
-        $res = $this->response->error(null, Http::HTTP_INTERNAL_SERVER_ERROR, ['package' => 'request']);
+        $res = $this->response->error(null, Http::INTERNAL_SERVER_ERROR, ['package' => 'request']);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -88,13 +88,13 @@ class ResponseTest extends Test
         $this->assertObjectHasProperty('data', $res);
         $this->assertSame(Status::ERROR, $res->status);
         $this->assertSame(null, $res->message);
-        $this->assertSame(Http::HTTP_INTERNAL_SERVER_ERROR, $res->code);
+        $this->assertSame(Http::INTERNAL_SERVER_ERROR, $res->code);
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
     public function testWarning(): void
     {
-        $res = $this->response->warning(null, Http::HTTP_OK, ['package' => 'request']);
+        $res = $this->response->warning(null, Http::OK, ['package' => 'request']);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -103,13 +103,13 @@ class ResponseTest extends Test
         $this->assertObjectHasProperty('data', $res);
         $this->assertSame(Status::WARNING, $res->status);
         $this->assertSame(null, $res->message);
-        $this->assertSame(Http::HTTP_OK, $res->code);
+        $this->assertSame(Http::OK, $res->code);
         $this->assertSame(['package' => 'request'], $res->data);
     }
 
     public function testInfo(): void
     {
-        $res = $this->response->info(null, Http::HTTP_OK, ['package' => 'request']);
+        $res = $this->response->info(null, Http::OK, ['package' => 'request']);
 
         $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
@@ -118,7 +118,7 @@ class ResponseTest extends Test
         $this->assertObjectHasProperty('data', $res);
         $this->assertSame(Status::INFO, $res->status);
         $this->assertSame(null, $res->message);
-        $this->assertSame(Http::HTTP_OK, $res->code);
+        $this->assertSame(Http::OK, $res->code);
         $this->assertSame(['package' => 'request'], $res->data);
     }
 }

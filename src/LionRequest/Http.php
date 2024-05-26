@@ -13,605 +13,645 @@ namespace Lion\Request;
  *
  * @package Lion\Request
  */
-class Http
+abstract class Http
 {
     /**
-     * [The HTTP 100 Continue informational status response code indicates that everything
-     * so far is OK and that the client should continue with the request or ignore it if
-     * it is already finished]
+     * [The HTTP 100 Continue informational status response code indicates that
+     * everything so far is OK and that the client should continue with the
+     * request or ignore it if it is already finished]
      *
-     * @const HTTP_CONTINUE
+     * @const CONTINUE
      */
-    const HTTP_CONTINUE = 100;
+    const CONTINUE = 100;
 
     /**
-     * [The HTTP 101 Switching Protocols informational status code is sent in response to
-     * an Upgrade request header from the client, and indicates the protocol the server
-     * is switching to]
+     * [The HTTP 101 Switching Protocols informational status code is sent in
+     * response to an Upgrade request header from the client, and indicates the
+     * protocol the server is switching to]
      *
-     * @const HTTP_SWITCHING_PROTOCOLS
+     * @const SWITCHING_PROTOCOLS
      */
-    const HTTP_SWITCHING_PROTOCOLS = 101;
+    const int SWITCHING_PROTOCOLS = 101;
 
     /**
-     * [The HTTP 102 Processing status code is an interim response used to inform the client
-     * that the server has accepted the complete request, but has not yet completed it]
+     * [The HTTP 102 Processing status code is an interim response used to
+     * inform the client that the server has accepted the complete request, but
+     * has not yet completed it]
      *
-     * @const HTTP_PROCESSING
+     * @const PROCESSING
      */
-    const HTTP_PROCESSING = 102;
+    const int PROCESSING = 102;
 
     /**
-     * [The HTTP 103 Early Hints status code is primarily intended to be used with the Link header,
-     * letting the user agent start preloading resources while the server prepares a response]
+     * [The HTTP 103 Early Hints status code is primarily intended to be used
+     * with the Link header, letting the user agent start preloading resources
+     * while the server prepares a response]
      *
-     * @const HTTP_EARLY_HINTS
+     * @const EARLY_HINTS
      */
-    const HTTP_EARLY_HINTS = 103;
+    const int EARLY_HINTS = 103;
 
     /**
      * [The HTTP 200 OK success status response code indicates that the request
      * has succeeded A 200 response is cacheable by default]
      *
-     * @const HTTP_OK
+     * @const OK
      */
-    const HTTP_OK = 200;
+    const int OK = 200;
 
     /**
-     * [The HTTP 201 Created success status response code indicates that the request
-     * has succeeded and a new resource has been created as a result]
+     * [The HTTP 201 Created success status response code indicates that the
+     * request has succeeded and a new resource has been created as a result]
      *
-     * @const HTTP_CREATED
+     * @const CREATED
      */
-    const HTTP_CREATED = 201;
+    const int CREATED = 201;
 
     /**
-     * [The HTTP 202 Accepted status code indicates that the request has been received
-     * but not yet acted upon]
+     * [The HTTP 202 Accepted status code indicates that the request has been
+     * received but not yet acted upon]
      *
-     * @const HTTP_ACCEPTED
+     * @const ACCEPTED
      */
-    const HTTP_ACCEPTED = 202;
+    const int ACCEPTED = 202;
 
     /**
-     * [The HTTP 203 Non-Authoritative Information response status code indicates that the
-     * request was successful but the enclosed payload has been modified from that of the
-     * origin server's 200 OK response by a transforming proxy]
+     * [The HTTP 203 Non-Authoritative Information response status code
+     * indicates that the request was successful but the enclosed payload has
+     * been modified from that of the origin server's 200 OK response by a
+     * transforming proxy]
      *
-     * @const HTTP_NON_AUTHORITATIVE_INFORMATION
+     * @const NON_AUTHORITATIVE_INFORMATION
      */
-    const HTTP_NON_AUTHORITATIVE_INFORMATION = 203;
+    const int NON_AUTHORITATIVE_INFORMATION = 203;
 
     /**
-     * [The HTTP 204 No Content success status response code indicates that a request has
-     * succeeded, but that the client doesn't need to navigate away from its current page]
+     * [The HTTP 204 No Content success status response code indicates that a
+     * request has succeeded, but that the client doesn't need to navigate away
+     * from its current page]
      *
-     * @const HTTP_NO_CONTENT
+     * @const NO_CONTENT
      */
-    const HTTP_NO_CONTENT = 204;
+    const int NO_CONTENT = 204;
 
     /**
-     * [The HTTP 205 Reset Content status code indicates that the server has fulfilled the
-     * request and desires that the client resets the document view, which caused the request
-     * to be sent, to its original state as received from the origin server]
+     * [The HTTP 205 Reset Content status code indicates that the server has
+     * fulfilled the request and desires that the client resets the document
+     * view, which caused the request to be sent, to its original state as
+     * received from the origin server]
      *
-     * @const HTTP_RESET_CONTENT
+     * @const RESET_CONTENT
      */
-    const HTTP_RESET_CONTENT = 205;
+    const int RESET_CONTENT = 205;
 
     /**
-     * [The HTTP 206 Partial Content success status response code indicates that the request
-     * has succeeded and has the body content of the range requested by the client]
+     * [The HTTP 206 Partial Content success status response code indicates that
+     * the request has succeeded and has the body content of the range requested
+     * by the client]
      *
-     * @const HTTP_PARTIAL_CONTENT
+     * @const PARTIAL_CONTENT
      */
-    const HTTP_PARTIAL_CONTENT = 206;
+    const int PARTIAL_CONTENT = 206;
 
     /**
-     * [The HTTP 207 Multi-Status status code provides status for multiple independent
-     * operations]
+     * [The HTTP 207 Multi-Status status code provides status for multiple
+     * independent operations]
      *
-     * @const HTTP_MULTI_STATUS
+     * @const MULTI_STATUS
      */
-    const HTTP_MULTI_STATUS = 207;
+    const int MULTI_STATUS = 207;
 
     /**
-     * [The HTTP 208 Already Reported status code is used inside a <dav:propstat> response
-     * element to avoid enumerating the internal members of multiple bindings to the same
-     * collection repeatedly]
+     * [The HTTP 208 Already Reported status code is used inside a
+     * <dav:propstat> response element to avoid enumerating the internal members
+     * of multiple bindings to the same collection repeatedly]
      *
-     * @const HTTP_ALREADY_REPORTED
+     * @const ALREADY_REPORTED
      */
-    const HTTP_ALREADY_REPORTED = 208;
+    const int ALREADY_REPORTED = 208;
 
     /**
-     * [The HTTP 226 IM Used success status code indicates that the server has fulfilled a
-     * request for the resource, and the response is a representation of the result of one or
-     * more instance-manipulations applied to the current instance]
+     * [The HTTP 226 IM Used success status code indicates that the server has
+     * fulfilled a request for the resource, and the response is a
+     * representation of the result of one or more instance-manipulations
+     * applied to the current instance]
      *
-     * @const HTTP_IM_USED
+     * @const IM_USED
      */
-    const HTTP_IM_USED = 226;
+    const int IM_USED = 226;
 
     /**
-     * [The HTTP 300 Multiple Choices redirect status response code indicates that the request
-     * has more than one possible response The user-agent or user should choose one of them]
+     * [The HTTP 300 Multiple Choices redirect status response code indicates
+     * that the request has more than one possible response The user-agent or
+     * user should choose one of them]
      *
-     * @const HTTP_MULTIPLE_CHOICES
+     * @const MULTIPLE_CHOICES
      */
-    const HTTP_MULTIPLE_CHOICES = 300;
+    const int MULTIPLE_CHOICES = 300;
 
     /**
-     * [The HTTP 301 Moved Permanently redirect status response code indicates that the resource
-     * requested has been definitively moved to the URL given by the Location headers]
+     * [The HTTP 301 Moved Permanently redirect status response code indicates
+     * that the resource requested has been definitively moved to the URL given
+     * by the Location headers]
      *
-     * @const HTTP_MOVED_PERMANENTLY
+     * @const MOVED_PERMANENTLY
      */
-    const HTTP_MOVED_PERMANENTLY = 301;
+    const int MOVED_PERMANENTLY = 301;
 
     /**
-     * [The HTTP 302 Found redirect status response code indicates that the resource requested
-     * has been temporarily moved to the URL given by the Location header]
+     * [The HTTP 302 Found redirect status response code indicates that the
+     * resource requested has been temporarily moved to the URL given by the
+     * Location header]
      *
-     * @const HTTP_FOUND
+     * @const FOUND
      */
-    const HTTP_FOUND = 302;
+    const int FOUND = 302;
 
     /**
-     * [The HTTP 303 See Other redirect status response code indicates that the redirects don't
-     * link to the newly uploaded resources but to another page]
+     * [The HTTP 303 See Other redirect status response code indicates that the
+     * redirects don't link to the newly uploaded resources but to another page]
      *
-     * @const HTTP_SEE_OTHER
+     * @const SEE_OTHER
      */
-    const HTTP_SEE_OTHER = 303;
+    const int SEE_OTHER = 303;
 
     /**
-     * [The HTTP 304 Not Modified client redirection response code indicates that there is no need
-     * to retransmit the requested resources]
+     * [The HTTP 304 Not Modified client redirection response code indicates
+     * that there is no need to retransmit the requested resources]
      *
-     * @const HTTP_NOT_MODIFIED
+     * @const NOT_MODIFIED
      */
-    const HTTP_NOT_MODIFIED = 304;
+    const int NOT_MODIFIED = 304;
 
     /**
-     * [The HTTP 305 Use Proxy response status code indicates that the requested response must be
-     * accessed by a proxy]
+     * [The HTTP 305 Use Proxy response status code indicates that the requested
+     * response must be accessed by a proxy]
      *
-     * @const HTTP_USE_PROXY
+     * @const USE_PROXY
      */
-    const HTTP_USE_PROXY = 305;
+    const int USE_PROXY = 305;
 
     /**
-     * [Unused]
-     * This response code is no longer used; it is just reserved
-     * It was used in a previous version of the HTTP/11 specification
+     * [This response code is no longer used; it is just reserved It was used in
+     * a previous version of the HTTP/11 specification]
      *
-     * @const HTTP_UNUSED
+     * @const UNUSED
      */
-    const HTTP_UNUSED = 306;
+    const int UNUSED = 306;
 
     /**
-     * [The HTTP 307 Temporary Redirect redirect status response code indicates that the resource
-     * requested has been temporarily moved to the URL given by the Location headers]
+     * [The HTTP 307 Temporary Redirect redirect status response code indicates
+     * that the resource requested has been temporarily moved to the URL given
+     * by the Location headers]
      *
-     * @const HTTP_TEMPORARY_REDIRECT
+     * @const TEMPORARY_REDIRECT
      */
-    const HTTP_TEMPORARY_REDIRECT = 307;
+    const int TEMPORARY_REDIRECT = 307;
 
     /**
-     * [The HTTP 308 Permanent Redirect redirect status response code indicates that the resource
-     * requested has been definitively moved to the URL given by the Location headers]
+     * [The HTTP 308 Permanent Redirect redirect status response code indicates
+     * that the resource requested has been definitively moved to the URL given
+     * by the Location headers]
      *
-     * @const HTTP_PERMANENT_REDIRECT
+     * @const PERMANENT_REDIRECT
      */
-    const HTTP_PERMANENT_REDIRECT = 308;
+    const int PERMANENT_REDIRECT = 308;
 
     /**
      * [The HTTP 400 Bad Request response status code indicates that the server
      * cannot or will not process the request due to something that is perceived
      * to be a client error]
      *
-     * @const HTTP_BAD_REQUEST
+     * @const BAD_REQUEST
      */
-    const HTTP_BAD_REQUEST = 400;
+    const int BAD_REQUEST = 400;
 
     /**
-     * [The HTTP 401 Unauthorized response status code indicates that the request
-     * has not been applied because it lacks valid authentication credentials for
-     * the target resource]
+     * [The HTTP 401 Unauthorized response status code indicates that the
+     * request has not been applied because it lacks valid authentication
+     * credentials for the target resource]
      *
-     * @const HTTP_UNAUTHORIZED
+     * @const UNAUTHORIZED
      */
-    const HTTP_UNAUTHORIZED = 401;
+    const int UNAUTHORIZED = 401;
 
     /**
-     * [The HTTP 402 Payment Required response status code is reserved for future
-     * use This status code is primarily intended for use in digital payment systems]
+     * [The HTTP 402 Payment Required response status code is reserved for
+     * future use This status code is primarily intended for use in digital
+     * payment systems]
      *
-     * @const HTTP_PAYMENT_REQUIRED
+     * @const PAYMENT_REQUIRED
      */
-    const HTTP_PAYMENT_REQUIRED = 402;
+    const int PAYMENT_REQUIRED = 402;
 
     /**
      * [The HTTP 403 Forbidden client error status response code indicates that
      * the server understood the request but refuses to authorize it]
      *
-     * @const HTTP_FORBIDDEN
+     * @const FORBIDDEN
      */
-    const HTTP_FORBIDDEN = 403;
+    const int FORBIDDEN = 403;
 
     /**
      * [The HTTP 404 Not Found response status code indicates that the server
      * cannot find the requested resource]
      *
-     * @const HTTP_NOT_FOUND
+     * @const NOT_FOUND
      */
-    const HTTP_NOT_FOUND = 404;
+    const int NOT_FOUND = 404;
 
     /**
      * [The HTTP 405 Method Not Allowed response status code indicates that the
-     * request method is known by the server but is not supported by the target resource]
+     * request method is known by the server but is not supported by the target
+     * resource]
      *
-     * @const HTTP_METHOD_NOT_ALLOWED
+     * @const METHOD_NOT_ALLOWED
      */
-    const HTTP_METHOD_NOT_ALLOWED = 405;
+    const int METHOD_NOT_ALLOWED = 405;
 
     /**
-     * [The HTTP 406 Not Acceptable response status code indicates that the server
-     * cannot produce a response matching the list of acceptable values defined
-     * in the request's proactive content negotiation headers]
+     * [The HTTP 406 Not Acceptable response status code indicates that the
+     * server cannot produce a response matching the list of acceptable values
+     * defined in the request's proactive content negotiation headers]
      *
-     * @const HTTP_NOT_ACCEPTABLE
+     * @const NOT_ACCEPTABLE
      */
-    const HTTP_NOT_ACCEPTABLE = 406;
+    const int NOT_ACCEPTABLE = 406;
 
     /**
      * [The HTTP 407 Proxy Authentication Required status code is similar to 401
-     * Unauthorized, but it indicates that the client needs to authenticate itself
-     * in order to use a proxy]
+     * Unauthorized, but it indicates that the client needs to authenticate
+     * itself in order to use a proxy]
      *
-     * @const HTTP_PROXY_AUTHENTICATION_REQUIRED
+     * @const PROXY_AUTHENTICATION_REQUIRED
      */
-    const HTTP_PROXY_AUTHENTICATION_REQUIRED = 407;
+    const int PROXY_AUTHENTICATION_REQUIRED = 407;
 
     /**
      * [The HTTP 408 Request Timeout response status code means that the server
      * would like to shut down this unused connection]
      *
-     * @const HTTP_REQUEST_TIMEOUT
+     * @const REQUEST_TIMEOUT
      */
-    const HTTP_REQUEST_TIMEOUT = 408;
+    const int REQUEST_TIMEOUT = 408;
 
     /**
      * [The HTTP 409 Conflict response status code indicates a request conflict
      * with the current state of the target resource]
      *
-     * @const HTTP_CONFLICT
+     * @const CONFLICT
      */
-    const HTTP_CONFLICT = 409;
+    const int CONFLICT = 409;
 
     /**
-     * [The HTTP 410 Gone response status code indicates that the target resource
-     * is no longer available at the origin server and that this condition is likely
-     * to be permanent]
+     * [The HTTP 410 Gone response status code indicates that the target
+     * resource is no longer available at the origin server and that this
+     * condition is likely to be permanent]
      *
-     * @const HTTP_GONE
+     * @const GONE
      */
-    const HTTP_GONE = 410;
+    const int GONE = 410;
 
     /**
-     * [The HTTP 411 Length Required client error response code indicates that the
-     * server refuses to accept the request without a defined Content-Length header]
+     * [The HTTP 411 Length Required client error response code indicates that
+     * the server refuses to accept the request without a defined Content-Length
+     * header]
      *
-     * @const HTTP_LENGTH_REQUIRED
+     * @const LENGTH_REQUIRED
      */
-    const HTTP_LENGTH_REQUIRED = 411;
+    const int LENGTH_REQUIRED = 411;
 
     /**
-     * [The HTTP 412 Precondition Failed client error response code indicates that
-     * access to the target resource has been denied]
+     * [The HTTP 412 Precondition Failed client error response code indicates
+     * that access to the target resource has been denied]
      *
-     * @const HTTP_PRECONDITION_FAILED
+     * @const PRECONDITION_FAILED
      */
-    const HTTP_PRECONDITION_FAILED = 412;
+    const int PRECONDITION_FAILED = 412;
 
     /**
-     * [The HTTP 413 Payload Too Large response status code indicates that the request
-     * entity is larger than limits defined by the server]
+     * [The HTTP 413 Payload Too Large response status code indicates that the
+     * request entity is larger than limits defined by the server]
      *
-     * @const HTTP_PAYLOAD_TOO_LARGE
+     * @const PAYLOAD_TOO_LARGE
      */
-    const HTTP_PAYLOAD_TOO_LARGE = 413;
+    const int PAYLOAD_TOO_LARGE = 413;
 
     /**
-     * [The HTTP 414 URI Too Long response status code indicates that the URI requested
-     * by the client is longer than the server is willing to interpret]
+     * [The HTTP 414 URI Too Long response status code indicates that the URI
+     * requested by the client is longer than the server is willing to
+     * interpret]
      *
-     * @const HTTP_URI_TOO_LONG
+     * @const URI_TOO_LONG
      */
-    const HTTP_URI_TOO_LONG = 414;
+    const int URI_TOO_LONG = 414;
 
     /**
-     * [The HTTP 415 Unsupported Media Type response status code indicates that the
-     * server refuses to accept the request because the payload format is in an unsupported format]
+     * [The HTTP 415 Unsupported Media Type response status code indicates that
+     * the server refuses to accept the request because the payload format is in
+     * an unsupported format]
      *
-     * @const HTTP_UNSUPPORTED_MEDIA_TYPE
+     * @const UNSUPPORTED_MEDIA_TYPE
      */
-    const HTTP_UNSUPPORTED_MEDIA_TYPE = 415;
+    const int UNSUPPORTED_MEDIA_TYPE = 415;
 
     /**
-     * [The HTTP 416 Range Not Satisfiable response status code indicates that none
-     * of the ranges in the Range header field overlap the current extent of the selected resource]
+     * [The HTTP 416 Range Not Satisfiable response status code indicates that
+     * none of the ranges in the Range header field overlap the current extent
+     * of the selected resource]
      *
-     * @const HTTP_RANGE_NOT_SATISFIABLE
+     * @const RANGE_NOT_SATISFIABLE
      */
-    const HTTP_RANGE_NOT_SATISFIABLE = 416;
+    const int RANGE_NOT_SATISFIABLE = 416;
 
     /**
-     * [The HTTP 417 Expectation Failed response status code indicates that the expectation
-     * given in the request's Expect header could not be met by at least one of the inbound servers]
+     * [The HTTP 417 Expectation Failed response status code indicates that the
+     * expectation given in the request's Expect header could not be met by at
+     * least one of the inbound servers]
      *
-     * @const HTTP_EXPECTATION_FAILED
+     * @const EXPECTATION_FAILED
      */
-    const HTTP_EXPECTATION_FAILED = 417;
+    const int EXPECTATION_FAILED = 417;
 
     /**
-     * [The HTTP 418 I'm a teapot client error response code indicates that the server
-     * refuses to brew coffee because it is a teapot]
+     * [The HTTP 418 I'm a teapot client error response code indicates that the
+     * server refuses to brew coffee because it is a teapot]
      *
-     * @const HTTP_IM_A_TEAPOT
+     * @const IM_A_TEAPOT
      */
-    const HTTP_IM_A_TEAPOT = 418;
+    const int IM_A_TEAPOT = 418;
 
     /**
-     * [The HTTP 421 Misdirected Request status code indicates that the request was directed
-     * at a server that is not able to produce a response]
+     * [The HTTP 421 Misdirected Request status code indicates that the request
+     * was directed at a server that is not able to produce a response]
      *
-     * @const HTTP_MISDIRECTED_REQUEST
+     * @const MISDIRECTED_REQUEST
      */
-    const HTTP_MISDIRECTED_REQUEST = 421;
+    const int MISDIRECTED_REQUEST = 421;
 
     /**
-     * [The HTTP 422 Unprocessable Entity response status code means the server understands
-     * the content type of the request entity, and the syntax of the request entity is correct,
-     * but it was unable to process the contained instructions]
+     * [The HTTP 422 Unprocessable Entity response status code means the server
+     * understands the content type of the request entity, and the syntax of the
+     * request entity is correct, but it was unable to process the contained
+     * instructions]
      *
-     * @const HTTP_UNPROCESSABLE_ENTITY
+     * @const UNPROCESSABLE_ENTITY
      */
-    const HTTP_UNPROCESSABLE_ENTITY = 422;
+    const int UNPROCESSABLE_ENTITY = 422;
 
     /**
-     * [The HTTP 423 Locked status code means the resource that is being accessed is locked]
+     * [The HTTP 423 Locked status code means the resource that is being
+     * accessed is locked]
      *
-     * @const HTTP_LOCKED
+     * @const LOCKED
      */
-    const HTTP_LOCKED = 423;
+    const int LOCKED = 423;
 
     /**
-     * [The HTTP 424 Failed Dependency status code means that the request failed because it
-     * depended on another request and that request failed]
+     * [The HTTP 424 Failed Dependency status code means that the request failed
+     * because it depended on another request and that request failed]
      *
-     * @const HTTP_FAILED_DEPENDENCY
+     * @const FAILED_DEPENDENCY
      */
-    const HTTP_FAILED_DEPENDENCY = 424;
+    const int FAILED_DEPENDENCY = 424;
 
     /**
-     * [The HTTP 425 Too Early status code indicates that the server is unwilling to risk
-     * processing a request that might be replayed]
+     * [The HTTP 425 Too Early status code indicates that the server is
+     * unwilling to risk processing a request that might be replayed]
      *
-     * @const HTTP_TOO_EARLY
+     * @const TOO_EARLY
      */
-    const HTTP_TOO_EARLY = 425;
+    const int TOO_EARLY = 425;
 
     /**
-     * [The HTTP 426 Upgrade Required response code indicates that the server refuses to
-     * perform the request using the current protocol but might be willing to do so after
-     * the client upgrades to a different protocol]
+     * [The HTTP 426 Upgrade Required response code indicates that the server
+     * refuses to perform the request using the current protocol but might be
+     * willing to do so after the client upgrades to a different protocol]
      *
-     * @const HTTP_UPGRADE_REQUIRED
+     * @const UPGRADE_REQUIRED
      */
-    const HTTP_UPGRADE_REQUIRED = 426;
+    const int UPGRADE_REQUIRED = 426;
 
     /**
-     * [The HTTP 428 Precondition Required status code indicates that the origin server requires
-     * the request to be conditional]
+     * [The HTTP 428 Precondition Required status code indicates that the origin
+     * server requires the request to be conditional]
      *
-     * @const HTTP_PRECONDITION_REQUIRED
+     * @const PRECONDITION_REQUIRED
      */
-    const HTTP_PRECONDITION_REQUIRED = 428;
+    const int PRECONDITION_REQUIRED = 428;
 
     /**
-     * [The HTTP 429 Too Many Requests response status code indicates that the user has sent too
-     * many requests in a given amount of time ("rate limiting")]
+     * [The HTTP 429 Too Many Requests response status code indicates that the
+     * user has sent too many requests in a given amount of time
+     * ("rate limiting")]
      *
-     * @const HTTP_TOO_MANY_REQUESTS
+     * @const TOO_MANY_REQUESTS
      */
-    const HTTP_TOO_MANY_REQUESTS = 429;
+    const int TOO_MANY_REQUESTS = 429;
 
     /**
-     * [The HTTP 431 Request Header Fields Too Large response status code indicates that the server
-     * is unwilling to process the request because its header fields are too large]
+     * [The HTTP 431 Request Header Fields Too Large response status code
+     * indicates that the server is unwilling to process the request because its
+     * header fields are too large]
      *
-     * @const HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE
+     * @const REQUEST_HEADER_FIELDS_TOO_LARGE
      */
-    const HTTP_REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
+    const int REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
 
     /**
-     * [The HTTP 451 Unavailable For Legal Reasons client error response code indicates that the
-     * user requested a resource that is not available due to legal reasons]
+     * [The HTTP 451 Unavailable For Legal Reasons client error response code
+     * indicates that the user requested a resource that is not available due to
+     * legal reasons]
      *
-     * @const HTTP_UNAVAILABLE_FOR_LEGAL_REASONS
+     * @const UNAVAILABLE_FOR_LEGAL_REASONS
      */
-    const HTTP_UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+    const int UNAVAILABLE_FOR_LEGAL_REASONS = 451;
 
     /**
-     * [The HTTP 499 Client Closed Request response status code is used when the client closes
-     * the connection before the server answers the request]
+     * [The HTTP 499 Client Closed Request response status code is used when the
+     * client closes the connection before the server answers the request]
      *
-     * @const HTTP_CLIENT_CLOSED_REQUEST
+     * @const CLIENT_CLOSED_REQUEST
      */
-    const HTTP_CLIENT_CLOSED_REQUEST = 499;
+    const int CLIENT_CLOSED_REQUEST = 499;
 
     /**
-     * [The HTTP 500 Internal Server Error response status code indicates that the server
-     * encountered an unexpected condition that prevented it from fulfilling the request]
+     * [The HTTP 500 Internal Server Error response status code indicates that
+     * the server encountered an unexpected condition that prevented it from
+     * fulfilling the request]
      *
-     * @const HTTP_INTERNAL_SERVER_ERROR
+     * @const INTERNAL_SERVER_ERROR
      */
-    const HTTP_INTERNAL_SERVER_ERROR = 500;
+    const int INTERNAL_SERVER_ERROR = 500;
 
     /**
-     * [The HTTP 501 Not Implemented server error response code means that the server does
-     * not support the functionality required to fulfill the request]
+     * [The HTTP 501 Not Implemented server error response code means that the
+     * server does not support the functionality required to fulfill the
+     * request]
      *
-     * @const HTTP_NOT_IMPLEMENTED
+     * @const NOT_IMPLEMENTED
      */
-    const HTTP_NOT_IMPLEMENTED = 501;
+    const int NOT_IMPLEMENTED = 501;
 
     /**
-     * [The HTTP 502 Bad Gateway server error response code indicates that the server, while
-     * acting as a gateway or proxy, received an invalid response from the inbound server it accessed
-     * while attempting to fulfill the request]
+     * [The HTTP 502 Bad Gateway server error response code indicates that the
+     * server, while acting as a gateway or proxy, received an invalid response
+     * from the inbound server it accessed while attempting to fulfill the
+     * request]
      *
-     * @const HTTP_BAD_GATEWAY
+     * @const BAD_GATEWAY
      */
-    const HTTP_BAD_GATEWAY = 502;
+    const int BAD_GATEWAY = 502;
 
     /**
-     * [The HTTP 503 Service Unavailable server error response code indicates that the server
-     * is not ready to handle the request]
+     * [The HTTP 503 Service Unavailable server error response code indicates
+     * that the server is not ready to handle the request]
      *
-     * @const HTTP_SERVICE_UNAVAILABLE
+     * @const SERVICE_UNAVAILABLE
      */
-    const HTTP_SERVICE_UNAVAILABLE = 503;
+    const int SERVICE_UNAVAILABLE = 503;
 
     /**
-     * [The HTTP 504 Gateway Timeout server error response code indicates that the server, while
-     * acting as a gateway or proxy, did not get a response in time from the upstream server
-     * that it needed in order to complete the request]
+     * [The HTTP 504 Gateway Timeout server error response code indicates that
+     * the server, while acting as a gateway or proxy, did not get a response in
+     * time from the upstream server that it needed in order to complete the
+     * request]
      *
-     * @const HTTP_GATEWAY_TIMEOUT
+     * @const GATEWAY_TIMEOUT
      */
-    const HTTP_GATEWAY_TIMEOUT = 504;
+    const int GATEWAY_TIMEOUT = 504;
 
     /**
-     * [The HTTP 505 HTTP Version Not Supported server error response code indicates that the server
-     * does not support the HTTP protocol version used in the request]
+     * [The HTTP 505 HTTP Version Not Supported server error response code
+     * indicates that the server does not support the HTTP protocol version used
+     * in the request]
      *
-     * @const HTTP_VERSION_NOT_SUPPORTED
+     * @const VERSION_NOT_SUPPORTED
      */
-    const HTTP_VERSION_NOT_SUPPORTED = 505;
+    const int VERSION_NOT_SUPPORTED = 505;
 
     /**
-     * [The HTTP 506 Variant Also Negotiates server error response code indicates that the server
-     * has an internal configuration error: the chosen variant resource is configured to engage
-     * in transparent content negotiation itself, and is therefore not a proper end point in the
+     * [The HTTP 506 Variant Also Negotiates server error response code
+     * indicates that the server has an internal configuration error: the chosen
+     * variant resource is configured to engage in transparent content
+     * negotiation itself, and is therefore not a proper end point in the
      * negotiation process]
      *
-     * @const HTTP_VARIANT_ALSO_NEGOTIATES
+     * @const VARIANT_ALSO_NEGOTIATES
      */
-    const HTTP_VARIANT_ALSO_NEGOTIATES = 506;
+    const int VARIANT_ALSO_NEGOTIATES = 506;
 
     /**
-     * [The HTTP 507 Insufficient Storage server error response code indicates that the server is
-     * unable to store the representation needed to complete the request]
+     * [The HTTP 507 Insufficient Storage server error response code indicates
+     * that the server is unable to store the representation needed to complete
+     * the request]
      *
-     * @const HTTP_INSUFFICIENT_STORAGE
+     * @const INSUFFICIENT_STORAGE
      */
-    const HTTP_INSUFFICIENT_STORAGE = 507;
+    const int INSUFFICIENT_STORAGE = 507;
 
     /**
-     * [The HTTP 508 Loop Detected status code indicates that the server terminated an operation
-     * because it encountered an infinite loop while processing a request with "Depth: infinity"]
+     * [The HTTP 508 Loop Detected status code indicates that the server
+     * terminated an operation because it encountered an infinite loop while
+     * processing a request with "Depth: infinity"]
      *
-     * @const HTTP_LOOP_DETECTED
+     * @const LOOP_DETECTED
      */
-    const HTTP_LOOP_DETECTED = 508;
+    const int LOOP_DETECTED = 508;
 
     /**
-     * [The HTTP 510 Not Extended server error response code indicates that further extensions to
-     * the request are required for the server to fulfill it]
+     * [The HTTP 510 Not Extended server error response code indicates that
+     * further extensions to the request are required for the server to fulfill
+     * it]
      *
-     * @const HTTP_NOT_EXTENDED
+     * @const NOT_EXTENDED
      */
-    const HTTP_NOT_EXTENDED = 510;
+    const int NOT_EXTENDED = 510;
 
     /**
-     * [The HTTP 511 Network Authentication Required server error response code indicates that the client
-     * needs to authenticate to gain network access]
+     * [The HTTP 511 Network Authentication Required server error response code
+     * indicates that the client needs to authenticate to gain network access]
      *
-     * @const HTTP_NETWORK_AUTHENTICATION_REQUIRED
+     * @const NETWORK_AUTHENTICATION_REQUIRED
      */
-    const HTTP_NETWORK_AUTHENTICATION_REQUIRED = 511;
+    const int NETWORK_AUTHENTICATION_REQUIRED = 511;
 
     /**
-     * [The HTTP 599 Network Connect Timeout Error status code is used to indicate network connection timeout
-     * beyond the control of the client or server]
+     * [The HTTP 599 Network Connect Timeout Error status code is used to
+     * indicate network connection timeout beyond the control of the client or
+     * server]
      *
-     * @const HTTP_NETWORK_CONNECT_TIMEOUT_ERROR
+     * @const NETWORK_CONNECT_TIMEOUT_ERROR
      */
-    const HTTP_NETWORK_CONNECT_TIMEOUT_ERROR = 599;
+    const int NETWORK_CONNECT_TIMEOUT_ERROR = 599;
 
     /**
-     * [The GET method requests a representation of the specified resource Requests using GET should only retrieve data]
+     * [The GET method requests a representation of the specified resource
+     * Requests using GET should only retrieve data]
      *
-     * @const HTTP_GET
+     * @const GET
      */
-    const HTTP_GET = 'GET';
+    const string GET = 'get';
 
     /**
-     * [The HEAD method asks for a response identical to a GET request, but without the response body]
+     * [The HEAD method asks for a response identical to a GET request, but
+     * without the response body]
      *
-     * @const HTTP_HEAD
+     * @const HEAD
      */
-    const HTTP_HEAD = 'HEAD';
+    const string HEAD = 'head';
 
     /**
-     * [The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server]
+     * [The POST method submits an entity to the specified resource, often
+     * causing a change in state or side effects on the server]
      *
-     * @const HTTP_POST
+     * @const POST
      */
-    const HTTP_POST = 'POST';
+    const string POST = 'post';
 
     /**
-     * [The PUT method replaces all current representations of the target resource with the request payload]
+     * [The PUT method replaces all current representations of the target
+     * resource with the request payload]
      *
-     * @const HTTP_PUT
+     * @const PUT
      */
-    const HTTP_PUT = 'PUT';
+    const string PUT = 'put';
 
     /**
      * [The DELETE method deletes the specified resource]
      *
-     * @const HTTP_DELETE
+     * @const DELETE
      */
-    const HTTP_DELETE = 'DELETE';
+    const string DELETE = 'delete';
 
     /**
-     * [The CONNECT method establishes a tunnel to the server identified by the target resource]
+     * [The CONNECT method establishes a tunnel to the server identified by the
+     * target resource]
      *
-     * @const HTTP_CONNECT
+     * @const CONNECT
      */
-    const HTTP_CONNECT = 'CONNECT';
+    const string CONNECT = 'connect';
 
     /**
-     * [The OPTIONS method describes the communication options for the target resource]
+     * [The OPTIONS method describes the communication options for the target
+     * resource]
      *
-     * @const HTTP_OPTIONS
+     * @const OPTIONS
      */
-    const HTTP_OPTIONS = 'OPTIONS';
+    const string OPTIONS = 'options';
 
     /**
-     * [The TRACE method performs a message loop-back test along the path to the target resource]
+     * [The TRACE method performs a message loop-back test along the path to the
+     * target resource]
      *
-     * @const HTTP_TRACE
+     * @const TRACE
      */
-    const HTTP_TRACE = 'TRACE';
+    const string TRACE = 'trace';
 
     /**
      * [The PATCH method applies partial modifications to a resource]
      *
-     * @const HTTP_PATCH
+     * @const PATCH
      */
-    const HTTP_PATCH = 'PATCH';
+    const string PATCH = 'patch';
 }

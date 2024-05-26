@@ -9,7 +9,7 @@ namespace Lion\Request;
  *
  * @package Lion\Request
  */
-class Status
+abstract class Status
 {
     /**
      * [Represents a correct response object]
