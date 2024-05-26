@@ -56,7 +56,7 @@ class Response
     public static function custom(
         string $status,
         ?string $message = null,
-        int $code = Http::HTTP_OK,
+        int $code = Http::OK,
         mixed $data = null
     ): object {
         http_response_code($code);
@@ -78,7 +78,7 @@ class Response
      *
      * @return object
      */
-    public static function success(?string $message = null, int $code = Http::HTTP_OK, mixed $data = null): object
+    public static function success(?string $message = null, int $code = Http::OK, mixed $data = null): object
     {
         return self::custom(Status::SUCCESS, $message, $code, $data);
     }
@@ -94,7 +94,7 @@ class Response
      */
     public static function error(
         ?string $message = null,
-        int $code = Http::HTTP_INTERNAL_SERVER_ERROR,
+        int $code = Http::INTERNAL_SERVER_ERROR,
         mixed $data = null
     ): object {
         return self::custom(Status::ERROR, $message, $code, $data);
@@ -109,7 +109,7 @@ class Response
      *
      * @return object
      */
-    public static function warning(?string $message = null, int $code = Http::HTTP_OK, mixed $data = null): object
+    public static function warning(?string $message = null, int $code = Http::OK, mixed $data = null): object
     {
         return self::custom(Status::WARNING, $message, $code, $data);
     }
@@ -123,7 +123,7 @@ class Response
      *
      * @return object
      */
-    public static function info(?string $message = null, int $code = Http::HTTP_OK, mixed $data = null): object
+    public static function info(?string $message = null, int $code = Http::OK, mixed $data = null): object
     {
         return self::custom(Status::INFO, $message, $code, $data);
     }
