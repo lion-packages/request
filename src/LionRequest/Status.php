@@ -16,68 +16,68 @@ abstract class Status
      *
      * @const SUCCESS
      */
-    const SUCCESS = 'success';
+    public const string SUCCESS = 'success';
 
     /**
      * [Represents an error response object]
      *
      * @const ERROR
      */
-    const ERROR = 'error';
+    public const string ERROR = 'error';
 
     /**
      * [Represents a warning response object]
      *
      * @const WARNING
      */
-    const WARNING = 'warning';
+    public const string WARNING = 'warning';
 
     /**
      * [Represents an information response object]
      *
      * @const INFO
      */
-    const INFO = 'info';
+    public const string INFO = 'info';
 
     /**
      * [Represents a database error response object]
      *
      * @const DATABASE_ERROR
      */
-    const DATABASE_ERROR = 'database-error';
+    public const string DATABASE_ERROR = 'database-error';
 
     /**
      * [Represents a sesion error response object]
      *
      * @const DATABASE_ERROR
      */
-    const SESSION_ERROR = 'session-error';
+    public const string SESSION_ERROR = 'session-error';
 
     /**
      * [Represents a route error response object]
      *
      * @const DATABASE_ERROR
      */
-    const ROUTE_ERROR = 'route-error';
+    public const string ROUTE_ERROR = 'route-error';
 
     /**
      * [Represents a file error response object]
      *
      * @const DATABASE_ERROR
      */
-    const FILE_ERROR = 'file-error';
+    public const string FILE_ERROR = 'file-error';
 
     /**
      * [Represents a mail error response object]
      *
      * @const DATABASE_ERROR
      */
-    const MAIL_ERROR = 'mail-error';
+    public const string MAIL_ERROR = 'mail-error';
 
     /**
      * [Represents a rules error response object]
      *
      * @const RULE_ERROR
      */
-    const RULE_ERROR = 'rule-error';
+    public const string RULE_ERROR = 'rule-error';
 }

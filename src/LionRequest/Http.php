@@ -22,7 +22,7 @@ abstract class Http
      *
      * @const CONTINUE
      */
-    const CONTINUE = 100;
+    public const int CONTINUE = 100;
 
     /**
      * [The HTTP 101 Switching Protocols informational status code is sent in
@@ -31,7 +31,7 @@ abstract class Http
      *
      * @const SWITCHING_PROTOCOLS
      */
-    const int SWITCHING_PROTOCOLS = 101;
+    public const int SWITCHING_PROTOCOLS = 101;
 
     /**
      * [The HTTP 102 Processing status code is an interim response used to
@@ -40,7 +40,7 @@ abstract class Http
      *
      * @const PROCESSING
      */
-    const int PROCESSING = 102;
+    public const int PROCESSING = 102;
 
     /**
      * [The HTTP 103 Early Hints status code is primarily intended to be used
@@ -49,7 +49,7 @@ abstract class Http
      *
      * @const EARLY_HINTS
      */
-    const int EARLY_HINTS = 103;
+    public const int EARLY_HINTS = 103;
 
     /**
      * [The HTTP 200 OK success status response code indicates that the request
@@ -57,7 +57,7 @@ abstract class Http
      *
      * @const OK
      */
-    const int OK = 200;
+    public const int OK = 200;
 
     /**
      * [The HTTP 201 Created success status response code indicates that the
@@ -65,7 +65,7 @@ abstract class Http
      *
      * @const CREATED
      */
-    const int CREATED = 201;
+    public const int CREATED = 201;
 
     /**
      * [The HTTP 202 Accepted status code indicates that the request has been
@@ -73,7 +73,7 @@ abstract class Http
      *
      * @const ACCEPTED
      */
-    const int ACCEPTED = 202;
+    public const int ACCEPTED = 202;
 
     /**
      * [The HTTP 203 Non-Authoritative Information response status code
@@ -83,7 +83,7 @@ abstract class Http
      *
      * @const NON_AUTHORITATIVE_INFORMATION
      */
-    const int NON_AUTHORITATIVE_INFORMATION = 203;
+    public const int NON_AUTHORITATIVE_INFORMATION = 203;
 
     /**
      * [The HTTP 204 No Content success status response code indicates that a
@@ -92,7 +92,7 @@ abstract class Http
      *
      * @const NO_CONTENT
      */
-    const int NO_CONTENT = 204;
+    public const int NO_CONTENT = 204;
 
     /**
      * [The HTTP 205 Reset Content status code indicates that the server has
@@ -102,7 +102,7 @@ abstract class Http
      *
      * @const RESET_CONTENT
      */
-    const int RESET_CONTENT = 205;
+    public const int RESET_CONTENT = 205;
 
     /**
      * [The HTTP 206 Partial Content success status response code indicates that
@@ -111,7 +111,7 @@ abstract class Http
      *
      * @const PARTIAL_CONTENT
      */
-    const int PARTIAL_CONTENT = 206;
+    public const int PARTIAL_CONTENT = 206;
 
     /**
      * [The HTTP 207 Multi-Status status code provides status for multiple
@@ -119,7 +119,7 @@ abstract class Http
      *
      * @const MULTI_STATUS
      */
-    const int MULTI_STATUS = 207;
+    public const int MULTI_STATUS = 207;
 
     /**
      * [The HTTP 208 Already Reported status code is used inside a
@@ -128,7 +128,7 @@ abstract class Http
      *
      * @const ALREADY_REPORTED
      */
-    const int ALREADY_REPORTED = 208;
+    public const int ALREADY_REPORTED = 208;
 
     /**
      * [The HTTP 226 IM Used success status code indicates that the server has
@@ -138,7 +138,7 @@ abstract class Http
      *
      * @const IM_USED
      */
-    const int IM_USED = 226;
+    public const int IM_USED = 226;
 
     /**
      * [The HTTP 300 Multiple Choices redirect status response code indicates
@@ -147,7 +147,7 @@ abstract class Http
      *
      * @const MULTIPLE_CHOICES
      */
-    const int MULTIPLE_CHOICES = 300;
+    public const int MULTIPLE_CHOICES = 300;
 
     /**
      * [The HTTP 301 Moved Permanently redirect status response code indicates
@@ -156,7 +156,7 @@ abstract class Http
      *
      * @const MOVED_PERMANENTLY
      */
-    const int MOVED_PERMANENTLY = 301;
+    public const int MOVED_PERMANENTLY = 301;
 
     /**
      * [The HTTP 302 Found redirect status response code indicates that the
@@ -165,7 +165,7 @@ abstract class Http
      *
      * @const FOUND
      */
-    const int FOUND = 302;
+    public const int FOUND = 302;
 
     /**
      * [The HTTP 303 See Other redirect status response code indicates that the
@@ -173,7 +173,7 @@ abstract class Http
      *
      * @const SEE_OTHER
      */
-    const int SEE_OTHER = 303;
+    public const int SEE_OTHER = 303;
 
     /**
      * [The HTTP 304 Not Modified client redirection response code indicates
@@ -181,7 +181,7 @@ abstract class Http
      *
      * @const NOT_MODIFIED
      */
-    const int NOT_MODIFIED = 304;
+    public const int NOT_MODIFIED = 304;
 
     /**
      * [The HTTP 305 Use Proxy response status code indicates that the requested
@@ -189,7 +189,7 @@ abstract class Http
      *
      * @const USE_PROXY
      */
-    const int USE_PROXY = 305;
+    public const int USE_PROXY = 305;
 
     /**
      * [This response code is no longer used; it is just reserved It was used in
@@ -197,7 +197,7 @@ abstract class Http
      *
      * @const UNUSED
      */
-    const int UNUSED = 306;
+    public const int UNUSED = 306;
 
     /**
      * [The HTTP 307 Temporary Redirect redirect status response code indicates
@@ -206,7 +206,7 @@ abstract class Http
      *
      * @const TEMPORARY_REDIRECT
      */
-    const int TEMPORARY_REDIRECT = 307;
+    public const int TEMPORARY_REDIRECT = 307;
 
     /**
      * [The HTTP 308 Permanent Redirect redirect status response code indicates
@@ -215,7 +215,7 @@ abstract class Http
      *
      * @const PERMANENT_REDIRECT
      */
-    const int PERMANENT_REDIRECT = 308;
+    public const int PERMANENT_REDIRECT = 308;
 
     /**
      * [The HTTP 400 Bad Request response status code indicates that the server
@@ -224,7 +224,7 @@ abstract class Http
      *
      * @const BAD_REQUEST
      */
-    const int BAD_REQUEST = 400;
+    public const int BAD_REQUEST = 400;
 
     /**
      * [The HTTP 401 Unauthorized response status code indicates that the
@@ -233,7 +233,7 @@ abstract class Http
      *
      * @const UNAUTHORIZED
      */
-    const int UNAUTHORIZED = 401;
+    public const int UNAUTHORIZED = 401;
 
     /**
      * [The HTTP 402 Payment Required response status code is reserved for
@@ -242,7 +242,7 @@ abstract class Http
      *
      * @const PAYMENT_REQUIRED
      */
-    const int PAYMENT_REQUIRED = 402;
+    public const int PAYMENT_REQUIRED = 402;
 
     /**
      * [The HTTP 403 Forbidden client error status response code indicates that
@@ -250,7 +250,7 @@ abstract class Http
      *
      * @const FORBIDDEN
      */
-    const int FORBIDDEN = 403;
+    public const int FORBIDDEN = 403;
 
     /**
      * [The HTTP 404 Not Found response status code indicates that the server
@@ -258,7 +258,7 @@ abstract class Http
      *
      * @const NOT_FOUND
      */
-    const int NOT_FOUND = 404;
+    public const int NOT_FOUND = 404;
 
     /**
      * [The HTTP 405 Method Not Allowed response status code indicates that the
@@ -267,7 +267,7 @@ abstract class Http
      *
      * @const METHOD_NOT_ALLOWED
      */
-    const int METHOD_NOT_ALLOWED = 405;
+    public const int METHOD_NOT_ALLOWED = 405;
 
     /**
      * [The HTTP 406 Not Acceptable response status code indicates that the
@@ -276,7 +276,7 @@ abstract class Http
      *
      * @const NOT_ACCEPTABLE
      */
-    const int NOT_ACCEPTABLE = 406;
+    public const int NOT_ACCEPTABLE = 406;
 
     /**
      * [The HTTP 407 Proxy Authentication Required status code is similar to 401
@@ -285,7 +285,7 @@ abstract class Http
      *
      * @const PROXY_AUTHENTICATION_REQUIRED
      */
-    const int PROXY_AUTHENTICATION_REQUIRED = 407;
+    public const int PROXY_AUTHENTICATION_REQUIRED = 407;
 
     /**
      * [The HTTP 408 Request Timeout response status code means that the server
@@ -293,7 +293,7 @@ abstract class Http
      *
      * @const REQUEST_TIMEOUT
      */
-    const int REQUEST_TIMEOUT = 408;
+    public const int REQUEST_TIMEOUT = 408;
 
     /**
      * [The HTTP 409 Conflict response status code indicates a request conflict
@@ -301,7 +301,7 @@ abstract class Http
      *
      * @const CONFLICT
      */
-    const int CONFLICT = 409;
+    public const int CONFLICT = 409;
 
     /**
      * [The HTTP 410 Gone response status code indicates that the target
@@ -310,7 +310,7 @@ abstract class Http
      *
      * @const GONE
      */
-    const int GONE = 410;
+    public const int GONE = 410;
 
     /**
      * [The HTTP 411 Length Required client error response code indicates that
@@ -319,7 +319,7 @@ abstract class Http
      *
      * @const LENGTH_REQUIRED
      */
-    const int LENGTH_REQUIRED = 411;
+    public const int LENGTH_REQUIRED = 411;
 
     /**
      * [The HTTP 412 Precondition Failed client error response code indicates
@@ -327,7 +327,7 @@ abstract class Http
      *
      * @const PRECONDITION_FAILED
      */
-    const int PRECONDITION_FAILED = 412;
+    public const int PRECONDITION_FAILED = 412;
 
     /**
      * [The HTTP 413 Payload Too Large response status code indicates that the
@@ -335,7 +335,7 @@ abstract class Http
      *
      * @const PAYLOAD_TOO_LARGE
      */
-    const int PAYLOAD_TOO_LARGE = 413;
+    public const int PAYLOAD_TOO_LARGE = 413;
 
     /**
      * [The HTTP 414 URI Too Long response status code indicates that the URI
@@ -344,7 +344,7 @@ abstract class Http
      *
      * @const URI_TOO_LONG
      */
-    const int URI_TOO_LONG = 414;
+    public const int URI_TOO_LONG = 414;
 
     /**
      * [The HTTP 415 Unsupported Media Type response status code indicates that
@@ -353,7 +353,7 @@ abstract class Http
      *
      * @const UNSUPPORTED_MEDIA_TYPE
      */
-    const int UNSUPPORTED_MEDIA_TYPE = 415;
+    public const int UNSUPPORTED_MEDIA_TYPE = 415;
 
     /**
      * [The HTTP 416 Range Not Satisfiable response status code indicates that
@@ -362,7 +362,7 @@ abstract class Http
      *
      * @const RANGE_NOT_SATISFIABLE
      */
-    const int RANGE_NOT_SATISFIABLE = 416;
+    public const int RANGE_NOT_SATISFIABLE = 416;
 
     /**
      * [The HTTP 417 Expectation Failed response status code indicates that the
@@ -371,7 +371,7 @@ abstract class Http
      *
      * @const EXPECTATION_FAILED
      */
-    const int EXPECTATION_FAILED = 417;
+    public const int EXPECTATION_FAILED = 417;
 
     /**
      * [The HTTP 418 I'm a teapot client error response code indicates that the
@@ -379,7 +379,7 @@ abstract class Http
      *
      * @const IM_A_TEAPOT
      */
-    const int IM_A_TEAPOT = 418;
+    public const int IM_A_TEAPOT = 418;
 
     /**
      * [The HTTP 421 Misdirected Request status code indicates that the request
@@ -387,7 +387,7 @@ abstract class Http
      *
      * @const MISDIRECTED_REQUEST
      */
-    const int MISDIRECTED_REQUEST = 421;
+    public const int MISDIRECTED_REQUEST = 421;
 
     /**
      * [The HTTP 422 Unprocessable Entity response status code means the server
@@ -397,7 +397,7 @@ abstract class Http
      *
      * @const UNPROCESSABLE_ENTITY
      */
-    const int UNPROCESSABLE_ENTITY = 422;
+    public const int UNPROCESSABLE_ENTITY = 422;
 
     /**
      * [The HTTP 423 Locked status code means the resource that is being
@@ -405,7 +405,7 @@ abstract class Http
      *
      * @const LOCKED
      */
-    const int LOCKED = 423;
+    public const int LOCKED = 423;
 
     /**
      * [The HTTP 424 Failed Dependency status code means that the request failed
@@ -413,7 +413,7 @@ abstract class Http
      *
      * @const FAILED_DEPENDENCY
      */
-    const int FAILED_DEPENDENCY = 424;
+    public const int FAILED_DEPENDENCY = 424;
 
     /**
      * [The HTTP 425 Too Early status code indicates that the server is
@@ -421,7 +421,7 @@ abstract class Http
      *
      * @const TOO_EARLY
      */
-    const int TOO_EARLY = 425;
+    public const int TOO_EARLY = 425;
 
     /**
      * [The HTTP 426 Upgrade Required response code indicates that the server
@@ -430,7 +430,7 @@ abstract class Http
      *
      * @const UPGRADE_REQUIRED
      */
-    const int UPGRADE_REQUIRED = 426;
+    public const int UPGRADE_REQUIRED = 426;
 
     /**
      * [The HTTP 428 Precondition Required status code indicates that the origin
@@ -438,7 +438,7 @@ abstract class Http
      *
      * @const PRECONDITION_REQUIRED
      */
-    const int PRECONDITION_REQUIRED = 428;
+    public const int PRECONDITION_REQUIRED = 428;
 
     /**
      * [The HTTP 429 Too Many Requests response status code indicates that the
@@ -447,7 +447,7 @@ abstract class Http
      *
      * @const TOO_MANY_REQUESTS
      */
-    const int TOO_MANY_REQUESTS = 429;
+    public const int TOO_MANY_REQUESTS = 429;
 
     /**
      * [The HTTP 431 Request Header Fields Too Large response status code
@@ -456,7 +456,7 @@ abstract class Http
      *
      * @const REQUEST_HEADER_FIELDS_TOO_LARGE
      */
-    const int REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
+    public const int REQUEST_HEADER_FIELDS_TOO_LARGE = 431;
 
     /**
      * [The HTTP 451 Unavailable For Legal Reasons client error response code
@@ -465,7 +465,7 @@ abstract class Http
      *
      * @const UNAVAILABLE_FOR_LEGAL_REASONS
      */
-    const int UNAVAILABLE_FOR_LEGAL_REASONS = 451;
+    public const int UNAVAILABLE_FOR_LEGAL_REASONS = 451;
 
     /**
      * [The HTTP 499 Client Closed Request response status code is used when the
@@ -473,16 +473,16 @@ abstract class Http
      *
      * @const CLIENT_CLOSED_REQUEST
      */
-    const int CLIENT_CLOSED_REQUEST = 499;
+    public const int CLIENT_CLOSED_REQUEST = 499;
 
     /**
      * [The HTTP 500 Internal Server Error response status code indicates that
      * the server encountered an unexpected condition that prevented it from
      * fulfilling the request]
      *
-     * @const INTERNAL_SERVER_ERROR
+     * @public const INTERNAL_SERVER_ERROR
      */
-    const int INTERNAL_SERVER_ERROR = 500;
+    public const int INTERNAL_SERVER_ERROR = 500;
 
     /**
      * [The HTTP 501 Not Implemented server error response code means that the
@@ -491,7 +491,7 @@ abstract class Http
      *
      * @const NOT_IMPLEMENTED
      */
-    const int NOT_IMPLEMENTED = 501;
+    public const int NOT_IMPLEMENTED = 501;
 
     /**
      * [The HTTP 502 Bad Gateway server error response code indicates that the
@@ -501,7 +501,7 @@ abstract class Http
      *
      * @const BAD_GATEWAY
      */
-    const int BAD_GATEWAY = 502;
+    public const int BAD_GATEWAY = 502;
 
     /**
      * [The HTTP 503 Service Unavailable server error response code indicates
@@ -509,7 +509,7 @@ abstract class Http
      *
      * @const SERVICE_UNAVAILABLE
      */
-    const int SERVICE_UNAVAILABLE = 503;
+    public const int SERVICE_UNAVAILABLE = 503;
 
     /**
      * [The HTTP 504 Gateway Timeout server error response code indicates that
@@ -519,7 +519,7 @@ abstract class Http
      *
      * @const GATEWAY_TIMEOUT
      */
-    const int GATEWAY_TIMEOUT = 504;
+    public const int GATEWAY_TIMEOUT = 504;
 
     /**
      * [The HTTP 505 HTTP Version Not Supported server error response code
@@ -528,7 +528,7 @@ abstract class Http
      *
      * @const VERSION_NOT_SUPPORTED
      */
-    const int VERSION_NOT_SUPPORTED = 505;
+    public const int VERSION_NOT_SUPPORTED = 505;
 
     /**
      * [The HTTP 506 Variant Also Negotiates server error response code
@@ -539,7 +539,7 @@ abstract class Http
      *
      * @const VARIANT_ALSO_NEGOTIATES
      */
-    const int VARIANT_ALSO_NEGOTIATES = 506;
+    public const int VARIANT_ALSO_NEGOTIATES = 506;
 
     /**
      * [The HTTP 507 Insufficient Storage server error response code indicates
@@ -548,7 +548,7 @@ abstract class Http
      *
      * @const INSUFFICIENT_STORAGE
      */
-    const int INSUFFICIENT_STORAGE = 507;
+    public const int INSUFFICIENT_STORAGE = 507;
 
     /**
      * [The HTTP 508 Loop Detected status code indicates that the server
@@ -557,7 +557,7 @@ abstract class Http
      *
      * @const LOOP_DETECTED
      */
-    const int LOOP_DETECTED = 508;
+    public const int LOOP_DETECTED = 508;
 
     /**
      * [The HTTP 510 Not Extended server error response code indicates that
@@ -566,7 +566,7 @@ abstract class Http
      *
      * @const NOT_EXTENDED
      */
-    const int NOT_EXTENDED = 510;
+    public const int NOT_EXTENDED = 510;
 
     /**
      * [The HTTP 511 Network Authentication Required server error response code
@@ -574,7 +574,7 @@ abstract class Http
      *
      * @const NETWORK_AUTHENTICATION_REQUIRED
      */
-    const int NETWORK_AUTHENTICATION_REQUIRED = 511;
+    public const int NETWORK_AUTHENTICATION_REQUIRED = 511;
 
     /**
      * [The HTTP 599 Network Connect Timeout Error status code is used to
@@ -583,7 +583,7 @@ abstract class Http
      *
      * @const NETWORK_CONNECT_TIMEOUT_ERROR
      */
-    const int NETWORK_CONNECT_TIMEOUT_ERROR = 599;
+    public const int NETWORK_CONNECT_TIMEOUT_ERROR = 599;
 
     /**
      * [The GET method requests a representation of the specified resource
@@ -591,7 +591,7 @@ abstract class Http
      *
      * @const GET
      */
-    const string GET = 'get';
+    public const string GET = 'GET';
 
     /**
      * [The HEAD method asks for a response identical to a GET request, but
@@ -599,7 +599,7 @@ abstract class Http
      *
      * @const HEAD
      */
-    const string HEAD = 'head';
+    public const string HEAD = 'HEAD';
 
     /**
      * [The POST method submits an entity to the specified resource, often
@@ -607,7 +607,7 @@ abstract class Http
      *
      * @const POST
      */
-    const string POST = 'post';
+    public const string POST = 'POST';
 
     /**
      * [The PUT method replaces all current representations of the target
@@ -615,14 +615,14 @@ abstract class Http
      *
      * @const PUT
      */
-    const string PUT = 'put';
+    public const string PUT = 'PUT';
 
     /**
      * [The DELETE method deletes the specified resource]
      *
      * @const DELETE
      */
-    const string DELETE = 'delete';
+    public const string DELETE = 'DELETE';
 
     /**
      * [The CONNECT method establishes a tunnel to the server identified by the
@@ -630,7 +630,7 @@ abstract class Http
      *
      * @const CONNECT
      */
-    const string CONNECT = 'connect';
+    public const string CONNECT = 'CONNECT';
 
     /**
      * [The OPTIONS method describes the communication options for the target
@@ -638,7 +638,7 @@ abstract class Http
      *
      * @const OPTIONS
      */
-    const string OPTIONS = 'options';
+    public const string OPTIONS = 'OPTIONS';
 
     /**
      * [The TRACE method performs a message loop-back test along the path to the
@@ -646,12 +646,12 @@ abstract class Http
      *
      * @const TRACE
      */
-    const string TRACE = 'trace';
+    public const string TRACE = 'TRACE';
 
     /**
      * [The PATCH method applies partial modifications to a resource]
      *
      * @const PATCH
      */
-    const string PATCH = 'patch';
+    public const string PATCH = 'PATCH';
 }
