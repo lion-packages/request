@@ -22,7 +22,7 @@ abstract class Http
      *
      * @const CONTINUE
      */
-    const CONTINUE = 100;
+    const int CONTINUE = 100;
 
     /**
      * [The HTTP 101 Switching Protocols informational status code is sent in
@@ -591,7 +591,7 @@ abstract class Http
      *
      * @const GET
      */
-    const string GET = 'get';
+    const string GET = 'GET';
 
     /**
      * [The HEAD method asks for a response identical to a GET request, but
@@ -599,7 +599,7 @@ abstract class Http
      *
      * @const HEAD
      */
-    const string HEAD = 'head';
+    const string HEAD = 'HEAD';
 
     /**
      * [The POST method submits an entity to the specified resource, often
@@ -607,7 +607,7 @@ abstract class Http
      *
      * @const POST
      */
-    const string POST = 'post';
+    const string POST = 'POST';
 
     /**
      * [The PUT method replaces all current representations of the target
@@ -615,14 +615,14 @@ abstract class Http
      *
      * @const PUT
      */
-    const string PUT = 'put';
+    const string PUT = 'PUT';
 
     /**
      * [The DELETE method deletes the specified resource]
      *
      * @const DELETE
      */
-    const string DELETE = 'delete';
+    const string DELETE = 'DELETE';
 
     /**
      * [The CONNECT method establishes a tunnel to the server identified by the
@@ -630,7 +630,7 @@ abstract class Http
      *
      * @const CONNECT
      */
-    const string CONNECT = 'connect';
+    const string CONNECT = 'CONNECT';
 
     /**
      * [The OPTIONS method describes the communication options for the target
@@ -638,7 +638,7 @@ abstract class Http
      *
      * @const OPTIONS
      */
-    const string OPTIONS = 'options';
+    const string OPTIONS = 'OPTIONS';
 
     /**
      * [The TRACE method performs a message loop-back test along the path to the
@@ -646,12 +646,12 @@ abstract class Http
      *
      * @const TRACE
      */
-    const string TRACE = 'trace';
+    const string TRACE = 'TRACE';
 
     /**
      * [The PATCH method applies partial modifications to a resource]
      *
      * @const PATCH
      */
-    const string PATCH = 'patch';
+    const string PATCH = 'PATCH';
 }
