@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Lion\Request;
 
+use stdClass;
+
 /**
  * Allows you to obtain data captured in an HTTP request and modify headers
  *
@@ -14,13 +16,22 @@ class Request
     /**
      * Get all values sent via an HTTP request
      *
-     * @return object
+     * @return stdClass
      */
-    public static function capture(): object
+    public static function capture(): stdClass
     {
         $content = json_decode(file_get_contents('php://input'), true);
 
-        return $content === null ? ((object) [...$_POST, ...$_FILES, ...$_GET]) : ((object) $content);
+        if (null === $content) {
+            return (object) [
+                ...$_POST,
+                ...$_FILES,
+                ...$_GET,
+                ...$_SERVER,
+            ];
+        }
+
+        return (object) $content;
     }
 
     /**
