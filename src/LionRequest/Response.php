@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Lion\Request;
 
+use stdClass;
+
 /**
  * Allows you to manage custom or already defined response objects
  *
@@ -16,7 +18,7 @@ class Response
      *
      * @return array<int, string>
      */
-    public function getErrors(): array
+    public static function getErrors(): array
     {
         return [
             Status::ERROR,
@@ -51,16 +53,20 @@ class Response
      * @param int $code [HTTP status code inside the object]
      * @param mixed|null $data [Extra data inside the object]
      *
-     * @return object
+     * @return stdClass
      */
     public static function custom(
         string $status,
         ?string $message = null,
         int $code = Http::OK,
         mixed $data = null
-    ): object {
+    ): stdClass {
         http_response_code($code);
-        $response = ['code' => $code, 'status' => $status, 'message' => $message];
+        $response = [
+            'code' => $code,
+            'status' => $status,
+            'message' => $message,
+        ];
 
         if (!empty($data)) {
             $response['data'] = $data;
@@ -76,9 +82,9 @@ class Response
      * @param int $code [HTTP status code inside the object]
      * @param mixed|null $data [Extra data inside the object]
      *
-     * @return object
+     * @return stdClass
      */
-    public static function success(?string $message = null, int $code = Http::OK, mixed $data = null): object
+    public static function success(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
     {
         return self::custom(Status::SUCCESS, $message, $code, $data);
     }
@@ -90,13 +96,13 @@ class Response
      * @param int $code [HTTP status code inside the object]
      * @param mixed|null $data [Extra data inside the object]
      *
-     * @return object
+     * @return stdClass
      */
     public static function error(
         ?string $message = null,
         int $code = Http::INTERNAL_SERVER_ERROR,
         mixed $data = null
-    ): object {
+    ): stdClass {
         return self::custom(Status::ERROR, $message, $code, $data);
     }
 
@@ -107,9 +113,9 @@ class Response
      * @param int $code [HTTP status code inside the object]
      * @param mixed|null $data [Extra data inside the object]
      *
-     * @return object
+     * @return stdClass
      */
-    public static function warning(?string $message = null, int $code = Http::OK, mixed $data = null): object
+    public static function warning(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
     {
         return self::custom(Status::WARNING, $message, $code, $data);
     }
@@ -121,9 +127,9 @@ class Response
      * @param int $code [HTTP status code inside the object]
      * @param mixed|null $data [Extra data inside the object]
      *
-     * @return object
+     * @return stdClass
      */
-    public static function info(?string $message = null, int $code = Http::OK, mixed $data = null): object
+    public static function info(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
     {
         return self::custom(Status::INFO, $message, $code, $data);
     }
