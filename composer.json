@@ -1,6 +1,6 @@
 {
     "name": "lion/request",
-    "description": "library created to request input data and response requests",
+    "description": "Library created to request input data and response requests",
     "type": "library",
     "license": "MIT",
     "autoload": {
