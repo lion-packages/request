@@ -80,4 +80,11 @@ abstract class Status
      * @const RULE_ERROR
      */
     public const string RULE_ERROR = 'rule-error';
+
+    /**
+     * [Represents an authentication error response object]
+     *
+     * @const AUTHENTICATION_ERROR
+     */
+    public const string AUTHENTICATION_ERROR = 'authentication-error';
 }
