@@ -28,6 +28,7 @@ class Response
             Status::ROUTE_ERROR,
             Status::SESSION_ERROR,
             Status::RULE_ERROR,
+            Status::AUTHENTICATION_ERROR,
         ];
     }
 
@@ -51,7 +52,7 @@ class Response
      * @param string $status [The type of status on the object]
      * @param string|null $message [Message inside the object]
      * @param int $code [HTTP status code inside the object]
-     * @param mixed|null $data [Extra data inside the object]
+     * @param mixed $data [Extra data inside the object]
      *
      * @return stdClass
      */
@@ -62,6 +63,7 @@ class Response
         mixed $data = null
     ): stdClass {
         http_response_code($code);
+
         $response = [
             'code' => $code,
             'status' => $status,
@@ -80,7 +82,7 @@ class Response
      *
      * @param string|null $message [Message inside the object]
      * @param int $code [HTTP status code inside the object]
-     * @param mixed|null $data [Extra data inside the object]
+     * @param mixed $data [Extra data inside the object]
      *
      * @return stdClass
      */
@@ -94,7 +96,7 @@ class Response
      *
      * @param string|null $message [Message inside the object]
      * @param int $code [HTTP status code inside the object]
-     * @param mixed|null $data [Extra data inside the object]
+     * @param mixed $data [Extra data inside the object]
      *
      * @return stdClass
      */
@@ -111,7 +113,7 @@ class Response
      *
      * @param string|null $message [Message inside the object]
      * @param int $code [HTTP status code inside the object]
-     * @param mixed|null $data [Extra data inside the object]
+     * @param mixed $data [Extra data inside the object]
      *
      * @return stdClass
      */
@@ -125,7 +127,7 @@ class Response
      *
      * @param string|null $message [Message inside the object]
      * @param int $code [HTTP status code inside the object]
-     * @param mixed|null $data [Extra data inside the object]
+     * @param mixed $data [Extra data inside the object]
      *
      * @return stdClass
      */
