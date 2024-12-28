@@ -47,7 +47,7 @@ abstract class Status
     public const string DATABASE_ERROR = 'database-error';
 
     /**
-     * [Represents a sesion error response object]
+     * [Represents a session error response object]
      *
      * @const DATABASE_ERROR
      */
