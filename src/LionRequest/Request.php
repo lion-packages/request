@@ -20,7 +20,7 @@ class Request
      */
     public static function capture(): stdClass
     {
-        $content = json_decode(file_get_contents('php://input'), true);
+        $content = json_decode((string) file_get_contents('php://input'), true);
 
         if (null === $content) {
             return (object) [
