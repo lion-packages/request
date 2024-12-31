@@ -86,13 +86,13 @@ jobs:
         run: composer install
 
       - name: PHP CodeSnifer (Src)
-        run: php vendor/bin/phpcs --standard=PSR12 src/
+        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 src
 
       - name: PHPStan (Src)
         run: php -d memory_limit=-1 vendor/bin/phpstan analyse src
 
       - name: PHP CodeSnifer (Tests)
-        run: php vendor/bin/phpcs --standard=PSR12 tests/
+        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 tests
 
       - name: PHPStan (Tests)
         run: php -d memory_limit=-1 vendor/bin/phpstan analyse tests
