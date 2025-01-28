@@ -3,8 +3,8 @@ name: Lion-Request (CI Workflow)
 on:
   push:
     branches:
-      - actions-sleon
-      - actions-saco
+      - main
+      - actions
   pull_request:
     branches:
       - main
@@ -34,43 +34,23 @@ jobs:
           php-version: '8.4'
           extensions: mbstring, gd, zip
 
+      - name: Composer Install
+        run: composer install
+
       - name: Composer Validate
         run: composer validate --strict
 
       - name: Composer Check for vulnerabilities
         run: composer audit --locked
 
-      - name: Composer Install
-        run: composer install
-
       - name: Composer Dump-Autoload
         run: composer dump-autoload --optimize --strict-psr
-
-  docker-validation:
-    runs-on: ubuntu-latest
-    name: Docker Validation
-
-    steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-
-      - name: Cache Docker layers
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
-      - name: Validate Docker Compose configuration
-        run: docker compose config
 
   code-analyze:
     runs-on: ubuntu-latest
     name: PHP Code Analyze
     needs:
       - composer-validation
-      - docker-validation
 
     steps:
       - name: Check out the repository
@@ -83,19 +63,19 @@ jobs:
           extensions: mbstring, gd, zip
 
       - name: Composer Install
-        run: composer install
+        run: composer install --dev
 
       - name: PHP CodeSnifer (Src)
         run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 src
 
       - name: PHPStan (Src)
-        run: php -d memory_limit=-1 vendor/bin/phpstan --level=max analyse src
+        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max src
 
       - name: PHP CodeSnifer (Tests)
         run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 tests
 
       - name: PHPStan (Tests)
-        run: php -d memory_limit=-1 vendor/bin/phpstan --level=max analyse tests
+        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max tests
 
   tests:
     runs-on: ubuntu-latest
@@ -106,28 +86,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.4
+          extensions: mbstring, gd, zip, pdo, pdo_mysql, pdo_pgsql, redis, xdebug
+          coverage: xdebug
+          ini-values: |
+            xdebug.mode=coverage
+            xdebug.start_with_request=yes
+            xdebug.log_level=0
+          tools: composer
 
-      - name: Tear down containers
-        run: docker compose down --volumes --remove-orphans
+      - name: Install php dependencies
+        run: composer install
 
-      - name: Stop running Docker containers (if any)
-        run: |
-          docker ps -q | xargs -r docker stop
-          docker ps -aq | xargs -r docker rm
+      - name: Run tests
+        run: php vendor/bin/phpunit --coverage-clover tests/build/logs/clover.xml --coverage-html tests/build/coverage
 
-      - name: Build the Docker image
-        run: docker build -t request-app .
-
-      - name: Start services using Docker Compose
-        run: |
-          docker compose -f docker-compose.yml up -d
-        env:
-          COMPOSE_PROJECT_NAME: test
-
-      - name: Install Composer dependencies
-        run: docker exec request-app composer install
-
-      - name: Run PHP Tests
-        run: docker exec request-app php vendor/bin/phpunit
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: tests/build/logs/clover.xml
+          token: ${{ secrets.CODECOV_TOKEN_LION_REQUEST }}
