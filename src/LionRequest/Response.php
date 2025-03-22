@@ -40,6 +40,8 @@ class Response
      * @param bool $isJson [Determines with a boolean if it is a JSON object]
      *
      * @return void
+     *
+     * @codeCoverageIgnore
      */
     public static function finish(mixed $response, bool $isJson = true): void
     {
