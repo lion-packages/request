@@ -3,7 +3,6 @@ name: Lion-Request (CI Workflow)
 on:
   push:
     branches:
-      - main
       - actions
   pull_request:
     branches:
@@ -46,9 +45,9 @@ jobs:
       - name: Composer Dump-Autoload
         run: composer dump-autoload --optimize --strict-psr
 
-  code-analyze:
+  code-analize-php-stan:
     runs-on: ubuntu-latest
-    name: PHP Code Analyze
+    name: PHP Code Analyze (PHPStan)
     needs:
       - composer-validation
 
@@ -65,22 +64,43 @@ jobs:
       - name: Composer Install
         run: composer install --dev
 
-      - name: PHP CodeSnifer (Src)
-        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 src
-
       - name: PHPStan (Src)
         run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max src
-
-      - name: PHP CodeSnifer (Tests)
-        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 tests
 
       - name: PHPStan (Tests)
         run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max tests
 
-  tests:
+  code-analize-php-codesniffer:
     runs-on: ubuntu-latest
-    name: PHP Tests
-    needs: code-analyze
+    name: PHP Code Analyze (Code Sniffer)
+    needs:
+      - composer-validation
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, gd, zip
+
+      - name: Composer Install
+        run: composer install --dev
+
+      - name: PHP CodeSniffer (Src)
+        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 src
+
+      - name: PHP CodeSniffer (Tests)
+        run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 tests
+
+  tests-phpunit:
+    runs-on: ubuntu-latest
+    name: PHP Tests (PHPUnit)
+    needs:
+      - code-analize-php-stan
+      - code-analize-php-codesniffer
 
     steps:
       - name: Checkout repository
