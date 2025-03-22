@@ -85,9 +85,38 @@ jobs:
       - name: Composer Dump-Autoload
         run: composer dump-autoload --optimize --strict-psr
 
+  dependency-review:
+    runs-on: ubuntu-latest
+    name: Dependency Review
+    needs: install-dependencies
+
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: Restore composer.lock from cache
+        uses: actions/cache@v4
+        with:
+          path: composer.lock
+          key: php-composer-lock-${{ runner.os }}
+          restore-keys: php-composer-lock-${{ runner.os }}
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          base-ref: main
+          head-ref: ${{ github.sha }}
+          comment-summary-in-pr: true
+          # Possible values: "critical", "high", "moderate", "low"
+          fail-on-severity: critical
+          license-check: true
+
   code-analize-php-stan:
     runs-on: ubuntu-latest
-    name: PHP Code Analyze (PHPStan)
+    name: PHPStan
     needs:
       - composer-validation
 
@@ -123,7 +152,7 @@ jobs:
 
   code-analize-php-codesniffer:
     runs-on: ubuntu-latest
-    name: PHP Code Analyze (Code Sniffer)
+    name: PHP Code Sniffer
     needs:
       - composer-validation
 
@@ -159,7 +188,7 @@ jobs:
 
   tests-phpunit:
     runs-on: ubuntu-latest
-    name: PHP Tests (PHPUnit)
+    name: PHPUnit
     needs:
       - code-analize-php-stan
       - code-analize-php-codesniffer
@@ -205,7 +234,7 @@ jobs:
 
   tests-infection:
     runs-on: ubuntu-latest
-    name: PHP Tests (Infection)
+    name: Infection
     needs:
       - code-analize-php-stan
       - code-analize-php-codesniffer
