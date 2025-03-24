@@ -37,15 +37,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-vendor-${{ runner.os }}
-          restore-keys: php-vendor-${{ runner.os }}
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
       - name: Cache composer.lock
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
   composer-validation:
     runs-on: ubuntu-latest
@@ -66,15 +66,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
       - name: Restore vendor directory from cache
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-vendor-${{ runner.os }}
-          restore-keys: php-vendor-${{ runner.os }}
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
       - name: Composer Validate
         run: composer validate --strict
@@ -101,8 +101,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
       - name: Dependency Review
         uses: actions/dependency-review-action@v4
@@ -134,15 +134,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
       - name: Restore vendor directory from cache
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-vendor-${{ runner.os }}
-          restore-keys: php-vendor-${{ runner.os }}
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
       - name: PHPStan (Src)
         run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max src
@@ -170,15 +170,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
       - name: Restore vendor directory from cache
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-vendor-${{ runner.os }}
-          restore-keys: php-vendor-${{ runner.os }}
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
       - name: PHP CodeSniffer (Src)
         run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 src
@@ -213,15 +213,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
       - name: Restore vendor directory from cache
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-vendor-${{ runner.os }}
-          restore-keys: php-vendor-${{ runner.os }}
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
       - name: Run tests
         run: php vendor/bin/phpunit --coverage-clover tests/build/logs/clover.xml --coverage-html tests/build/coverage
@@ -259,15 +259,15 @@ jobs:
         uses: actions/cache@v4
         with:
           path: composer.lock
-          key: php-composer-lock-${{ runner.os }}
-          restore-keys: php-composer-lock-${{ runner.os }}
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
 
       - name: Restore vendor directory from cache
         uses: actions/cache@v4
         with:
           path: vendor
-          key: php-vendor-${{ runner.os }}
-          restore-keys: php-vendor-${{ runner.os }}
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
 
       - name: Run tests (Infection)
         run: php vendor/bin/infection --show-mutations
