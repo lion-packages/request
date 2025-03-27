@@ -22,13 +22,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.4
-          extensions: mbstring, gd, zip, xdebug
-          coverage: xdebug
-          ini-values: |
-            xdebug.mode=coverage
-            xdebug.start_with_request=yes
-            xdebug.log_level=0
-          tools: composer
+          extensions: mbstring, gd, zip
 
       - name: Install PHP dependencies
         run: composer install
@@ -114,7 +108,7 @@ jobs:
           fail-on-severity: critical
           license-check: true
 
-  code-analize-php-stan:
+  code-analysis-php-stan:
     runs-on: ubuntu-latest
     name: PHPStan
     needs:
@@ -150,7 +144,7 @@ jobs:
       - name: PHPStan (Tests)
         run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max tests
 
-  code-analize-php-codesniffer:
+  code-analysis-php-codesniffer:
     runs-on: ubuntu-latest
     name: PHP Code Sniffer
     needs:
@@ -186,12 +180,49 @@ jobs:
       - name: PHP CodeSniffer (Tests)
         run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 tests
 
+  code-analysis-phplint:
+    runs-on: ubuntu-latest
+    name: PHPLint
+    needs:
+      - composer-validation
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, gd, zip
+
+      - name: Restore composer.lock from cache
+        uses: actions/cache@v4
+        with:
+          path: composer.lock
+          key: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-composer-lock-${{ runner.os }}-${{ github.run_id }}
+
+      - name: Restore vendor directory from cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: php-vendor-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: php-vendor-${{ runner.os }}-${{ github.run_id }}
+
+      - name: PHPLint (Src)
+        run: php -d memory_limit=-1 vendor/bin/phplint src
+
+      - name: PHPLint (Tests)
+        run: php -d memory_limit=-1 vendor/bin/phplint tests
+
   tests-phpunit:
     runs-on: ubuntu-latest
     name: PHPUnit
     needs:
-      - code-analize-php-stan
-      - code-analize-php-codesniffer
+      - code-analysis-php-stan
+      - code-analysis-php-codesniffer
+      - code-analysis-phplint
 
     steps:
       - name: Checkout repository
@@ -236,8 +267,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Infection
     needs:
-      - code-analize-php-stan
-      - code-analize-php-codesniffer
+      - code-analysis-php-stan
+      - code-analysis-php-codesniffer
+      - code-analysis-phplint
 
     steps:
       - name: Checkout repository
@@ -247,13 +279,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.4
-          extensions: mbstring, gd, zip, xdebug
-          coverage: xdebug
-          ini-values: |
-            xdebug.mode=coverage
-            xdebug.start_with_request=yes
-            xdebug.log_level=0
-          tools: composer
+          extensions: mbstring, gd, zip
 
       - name: Restore composer.lock from cache
         uses: actions/cache@v4
