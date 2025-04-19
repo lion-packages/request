@@ -1,0 +1,11 @@
+preset: symfony
+
+risky: true
+
+finder:
+  path:
+    - src
+    - tests
+
+  not-path:
+    - vendor
