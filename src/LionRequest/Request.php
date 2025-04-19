@@ -45,7 +45,7 @@ class Request
     {
         $input = self::getInput();
 
-        if (empty($input)){
+        if (empty($input)) {
             return (object) [
                 ...$_POST,
                 ...$_FILES,
