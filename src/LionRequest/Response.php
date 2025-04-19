@@ -7,14 +7,12 @@ namespace Lion\Request;
 use stdClass;
 
 /**
- * Allows you to manage custom or already defined response objects
- *
- * @package Lion\Request
+ * Allows you to manage custom or already defined response objects.
  */
 class Response
 {
     /**
-     * Returns an array with the available error types
+     * Returns an array with the available error types.
      *
      * @return array<int, string>
      */
@@ -34,29 +32,25 @@ class Response
 
     /**
      * stops the execution of the process where the call is made and displays
-     * a response
+     * a response.
      *
      * @param mixed $response [Message or content to view]
-     * @param bool $isJson [Determines with a boolean if it is a JSON object]
-     *
-     * @return void
+     * @param bool  $isJson   [Determines with a boolean if it is a JSON object]
      *
      * @codeCoverageIgnore
      */
     public static function finish(mixed $response, bool $isJson = true): void
     {
-        die($isJson ? json_encode($response) : $response);
+        exit($isJson ? json_encode($response) : $response);
     }
 
     /**
-     * Allows you to generate a custom response object
+     * Allows you to generate a custom response object.
      *
-     * @param string $status [The type of status on the object]
+     * @param string      $status  [The type of status on the object]
      * @param string|null $message [Message inside the object]
-     * @param int $code [HTTP status code inside the object]
-     * @param mixed $data [Extra data inside the object]
-     *
-     * @return stdClass
+     * @param int         $code    [HTTP status code inside the object]
+     * @param mixed       $data    [Extra data inside the object]
      */
     public static function custom(
         string $status,
@@ -80,13 +74,11 @@ class Response
     }
 
     /**
-     * Allows you to generate an object of type success
+     * Allows you to generate an object of type success.
      *
      * @param string|null $message [Message inside the object]
-     * @param int $code [HTTP status code inside the object]
-     * @param mixed $data [Extra data inside the object]
-     *
-     * @return stdClass
+     * @param int         $code    [HTTP status code inside the object]
+     * @param mixed       $data    [Extra data inside the object]
      */
     public static function success(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
     {
@@ -94,13 +86,11 @@ class Response
     }
 
     /**
-     * Allows you to generate an object of type error
+     * Allows you to generate an object of type error.
      *
      * @param string|null $message [Message inside the object]
-     * @param int $code [HTTP status code inside the object]
-     * @param mixed $data [Extra data inside the object]
-     *
-     * @return stdClass
+     * @param int         $code    [HTTP status code inside the object]
+     * @param mixed       $data    [Extra data inside the object]
      */
     public static function error(
         ?string $message = null,
@@ -111,13 +101,11 @@ class Response
     }
 
     /**
-     * Allows you to generate an object of type warning
+     * Allows you to generate an object of type warning.
      *
      * @param string|null $message [Message inside the object]
-     * @param int $code [HTTP status code inside the object]
-     * @param mixed $data [Extra data inside the object]
-     *
-     * @return stdClass
+     * @param int         $code    [HTTP status code inside the object]
+     * @param mixed       $data    [Extra data inside the object]
      */
     public static function warning(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
     {
@@ -125,13 +113,11 @@ class Response
     }
 
     /**
-     * Allows you to generate an object of type info
+     * Allows you to generate an object of type info.
      *
      * @param string|null $message [Message inside the object]
-     * @param int $code [HTTP status code inside the object]
-     * @param mixed $data [Extra data inside the object]
-     *
-     * @return stdClass
+     * @param int         $code    [HTTP status code inside the object]
+     * @param mixed       $data    [Extra data inside the object]
      */
     public static function info(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
     {

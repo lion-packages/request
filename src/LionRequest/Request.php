@@ -7,16 +7,12 @@ namespace Lion\Request;
 use stdClass;
 
 /**
- * Allows you to obtain data captured in an HTTP request and modify headers
- *
- * @package lion\Request
+ * Allows you to obtain data captured in an HTTP request and modify headers.
  */
 class Request
 {
     /**
-     * [Defines the value of the input]
-     *
-     * @var string|null $input
+     * [Defines the value of the input].
      */
     public static ?string $input = null;
 
@@ -24,9 +20,7 @@ class Request
      * This getInput method retrieves and returns the full body of the incoming
      * HTTP request. It uses file_get_contents('php://input') to read the raw
      * data sent to the server, which is useful for handling requests with data
-     * in formats like JSON or XML in PHP applications
-     *
-     * @return string
+     * in formats like JSON or XML in PHP applications.
      */
     private static function getInput(): string
     {
@@ -37,9 +31,7 @@ class Request
     }
 
     /**
-     * Get all values sent via an HTTP request
-     *
-     * @return stdClass
+     * Get all values sent via an HTTP request.
      */
     public static function capture(): stdClass
     {

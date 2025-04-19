@@ -5,20 +5,18 @@ declare(strict_types=1);
 namespace Lion\Request;
 
 /**
- * Defines HTTP status codes and request methods as constants
+ * Defines HTTP status codes and request methods as constants.
  *
  * This class provides a comprehensive list of HTTP status codes and request
  * methods that can be used to handle HTTP responses and requests within an
  * application
- *
- * @package Lion\Request
  */
 abstract class Http
 {
     /**
      * [The HTTP 100 Continue informational status response code indicates that
      * everything so far is OK and that the client should continue with the
-     * request or ignore it if it is already finished]
+     * request or ignore it if it is already finished].
      *
      * @const CONTINUE
      */
@@ -27,7 +25,7 @@ abstract class Http
     /**
      * [The HTTP 101 Switching Protocols informational status code is sent in
      * response to an Upgrade request header from the client, and indicates the
-     * protocol the server is switching to]
+     * protocol the server is switching to].
      *
      * @const SWITCHING_PROTOCOLS
      */
@@ -36,7 +34,7 @@ abstract class Http
     /**
      * [The HTTP 102 Processing status code is an interim response used to
      * inform the client that the server has accepted the complete request, but
-     * has not yet completed it]
+     * has not yet completed it].
      *
      * @const PROCESSING
      */
@@ -45,7 +43,7 @@ abstract class Http
     /**
      * [The HTTP 103 Early Hints status code is primarily intended to be used
      * with the Link header, letting the user agent start preloading resources
-     * while the server prepares a response]
+     * while the server prepares a response].
      *
      * @const EARLY_HINTS
      */
@@ -53,7 +51,7 @@ abstract class Http
 
     /**
      * [The HTTP 200 OK success status response code indicates that the request
-     * has succeeded A 200 response is cacheable by default]
+     * has succeeded A 200 response is cacheable by default].
      *
      * @const OK
      */
@@ -61,7 +59,7 @@ abstract class Http
 
     /**
      * [The HTTP 201 Created success status response code indicates that the
-     * request has succeeded and a new resource has been created as a result]
+     * request has succeeded and a new resource has been created as a result].
      *
      * @const CREATED
      */
@@ -69,7 +67,7 @@ abstract class Http
 
     /**
      * [The HTTP 202 Accepted status code indicates that the request has been
-     * received but not yet acted upon]
+     * received but not yet acted upon].
      *
      * @const ACCEPTED
      */
@@ -79,7 +77,7 @@ abstract class Http
      * [The HTTP 203 Non-Authoritative Information response status code
      * indicates that the request was successful but the enclosed payload has
      * been modified from that of the origin server's 200 OK response by a
-     * transforming proxy]
+     * transforming proxy].
      *
      * @const NON_AUTHORITATIVE_INFORMATION
      */
@@ -88,7 +86,7 @@ abstract class Http
     /**
      * [The HTTP 204 No Content success status response code indicates that a
      * request has succeeded, but that the client doesn't need to navigate away
-     * from its current page]
+     * from its current page].
      *
      * @const NO_CONTENT
      */
@@ -98,7 +96,7 @@ abstract class Http
      * [The HTTP 205 Reset Content status code indicates that the server has
      * fulfilled the request and desires that the client resets the document
      * view, which caused the request to be sent, to its original state as
-     * received from the origin server]
+     * received from the origin server].
      *
      * @const RESET_CONTENT
      */
@@ -107,7 +105,7 @@ abstract class Http
     /**
      * [The HTTP 206 Partial Content success status response code indicates that
      * the request has succeeded and has the body content of the range requested
-     * by the client]
+     * by the client].
      *
      * @const PARTIAL_CONTENT
      */
@@ -115,7 +113,7 @@ abstract class Http
 
     /**
      * [The HTTP 207 Multi-Status status code provides status for multiple
-     * independent operations]
+     * independent operations].
      *
      * @const MULTI_STATUS
      */
@@ -124,7 +122,7 @@ abstract class Http
     /**
      * [The HTTP 208 Already Reported status code is used inside a
      * <dav:propstat> response element to avoid enumerating the internal members
-     * of multiple bindings to the same collection repeatedly]
+     * of multiple bindings to the same collection repeatedly].
      *
      * @const ALREADY_REPORTED
      */
@@ -134,7 +132,7 @@ abstract class Http
      * [The HTTP 226 IM Used success status code indicates that the server has
      * fulfilled a request for the resource, and the response is a
      * representation of the result of one or more instance-manipulations
-     * applied to the current instance]
+     * applied to the current instance].
      *
      * @const IM_USED
      */
@@ -143,7 +141,7 @@ abstract class Http
     /**
      * [The HTTP 300 Multiple Choices redirect status response code indicates
      * that the request has more than one possible response The user-agent or
-     * user should choose one of them]
+     * user should choose one of them].
      *
      * @const MULTIPLE_CHOICES
      */
@@ -152,7 +150,7 @@ abstract class Http
     /**
      * [The HTTP 301 Moved Permanently redirect status response code indicates
      * that the resource requested has been definitively moved to the URL given
-     * by the Location headers]
+     * by the Location headers].
      *
      * @const MOVED_PERMANENTLY
      */
@@ -161,7 +159,7 @@ abstract class Http
     /**
      * [The HTTP 302 Found redirect status response code indicates that the
      * resource requested has been temporarily moved to the URL given by the
-     * Location header]
+     * Location header].
      *
      * @const FOUND
      */
@@ -169,7 +167,7 @@ abstract class Http
 
     /**
      * [The HTTP 303 See Other redirect status response code indicates that the
-     * redirects don't link to the newly uploaded resources but to another page]
+     * redirects don't link to the newly uploaded resources but to another page].
      *
      * @const SEE_OTHER
      */
@@ -177,7 +175,7 @@ abstract class Http
 
     /**
      * [The HTTP 304 Not Modified client redirection response code indicates
-     * that there is no need to retransmit the requested resources]
+     * that there is no need to retransmit the requested resources].
      *
      * @const NOT_MODIFIED
      */
@@ -185,7 +183,7 @@ abstract class Http
 
     /**
      * [The HTTP 305 Use Proxy response status code indicates that the requested
-     * response must be accessed by a proxy]
+     * response must be accessed by a proxy].
      *
      * @const USE_PROXY
      */
@@ -193,7 +191,7 @@ abstract class Http
 
     /**
      * [This response code is no longer used; it is just reserved It was used in
-     * a previous version of the HTTP/11 specification]
+     * a previous version of the HTTP/11 specification].
      *
      * @const UNUSED
      */
@@ -202,7 +200,7 @@ abstract class Http
     /**
      * [The HTTP 307 Temporary Redirect redirect status response code indicates
      * that the resource requested has been temporarily moved to the URL given
-     * by the Location headers]
+     * by the Location headers].
      *
      * @const TEMPORARY_REDIRECT
      */
@@ -211,7 +209,7 @@ abstract class Http
     /**
      * [The HTTP 308 Permanent Redirect redirect status response code indicates
      * that the resource requested has been definitively moved to the URL given
-     * by the Location headers]
+     * by the Location headers].
      *
      * @const PERMANENT_REDIRECT
      */
@@ -220,7 +218,7 @@ abstract class Http
     /**
      * [The HTTP 400 Bad Request response status code indicates that the server
      * cannot or will not process the request due to something that is perceived
-     * to be a client error]
+     * to be a client error].
      *
      * @const BAD_REQUEST
      */
@@ -229,7 +227,7 @@ abstract class Http
     /**
      * [The HTTP 401 Unauthorized response status code indicates that the
      * request has not been applied because it lacks valid authentication
-     * credentials for the target resource]
+     * credentials for the target resource].
      *
      * @const UNAUTHORIZED
      */
@@ -238,7 +236,7 @@ abstract class Http
     /**
      * [The HTTP 402 Payment Required response status code is reserved for
      * future use This status code is primarily intended for use in digital
-     * payment systems]
+     * payment systems].
      *
      * @const PAYMENT_REQUIRED
      */
@@ -246,7 +244,7 @@ abstract class Http
 
     /**
      * [The HTTP 403 Forbidden client error status response code indicates that
-     * the server understood the request but refuses to authorize it]
+     * the server understood the request but refuses to authorize it].
      *
      * @const FORBIDDEN
      */
@@ -254,7 +252,7 @@ abstract class Http
 
     /**
      * [The HTTP 404 Not Found response status code indicates that the server
-     * cannot find the requested resource]
+     * cannot find the requested resource].
      *
      * @const NOT_FOUND
      */
@@ -263,7 +261,7 @@ abstract class Http
     /**
      * [The HTTP 405 Method Not Allowed response status code indicates that the
      * request method is known by the server but is not supported by the target
-     * resource]
+     * resource].
      *
      * @const METHOD_NOT_ALLOWED
      */
@@ -272,7 +270,7 @@ abstract class Http
     /**
      * [The HTTP 406 Not Acceptable response status code indicates that the
      * server cannot produce a response matching the list of acceptable values
-     * defined in the request's proactive content negotiation headers]
+     * defined in the request's proactive content negotiation headers].
      *
      * @const NOT_ACCEPTABLE
      */
@@ -281,7 +279,7 @@ abstract class Http
     /**
      * [The HTTP 407 Proxy Authentication Required status code is similar to 401
      * Unauthorized, but it indicates that the client needs to authenticate
-     * itself in order to use a proxy]
+     * itself in order to use a proxy].
      *
      * @const PROXY_AUTHENTICATION_REQUIRED
      */
@@ -289,7 +287,7 @@ abstract class Http
 
     /**
      * [The HTTP 408 Request Timeout response status code means that the server
-     * would like to shut down this unused connection]
+     * would like to shut down this unused connection].
      *
      * @const REQUEST_TIMEOUT
      */
@@ -297,7 +295,7 @@ abstract class Http
 
     /**
      * [The HTTP 409 Conflict response status code indicates a request conflict
-     * with the current state of the target resource]
+     * with the current state of the target resource].
      *
      * @const CONFLICT
      */
@@ -306,7 +304,7 @@ abstract class Http
     /**
      * [The HTTP 410 Gone response status code indicates that the target
      * resource is no longer available at the origin server and that this
-     * condition is likely to be permanent]
+     * condition is likely to be permanent].
      *
      * @const GONE
      */
@@ -315,7 +313,7 @@ abstract class Http
     /**
      * [The HTTP 411 Length Required client error response code indicates that
      * the server refuses to accept the request without a defined Content-Length
-     * header]
+     * header].
      *
      * @const LENGTH_REQUIRED
      */
@@ -323,7 +321,7 @@ abstract class Http
 
     /**
      * [The HTTP 412 Precondition Failed client error response code indicates
-     * that access to the target resource has been denied]
+     * that access to the target resource has been denied].
      *
      * @const PRECONDITION_FAILED
      */
@@ -331,7 +329,7 @@ abstract class Http
 
     /**
      * [The HTTP 413 Payload Too Large response status code indicates that the
-     * request entity is larger than limits defined by the server]
+     * request entity is larger than limits defined by the server].
      *
      * @const PAYLOAD_TOO_LARGE
      */
@@ -340,7 +338,7 @@ abstract class Http
     /**
      * [The HTTP 414 URI Too Long response status code indicates that the URI
      * requested by the client is longer than the server is willing to
-     * interpret]
+     * interpret].
      *
      * @const URI_TOO_LONG
      */
@@ -349,7 +347,7 @@ abstract class Http
     /**
      * [The HTTP 415 Unsupported Media Type response status code indicates that
      * the server refuses to accept the request because the payload format is in
-     * an unsupported format]
+     * an unsupported format].
      *
      * @const UNSUPPORTED_MEDIA_TYPE
      */
@@ -358,7 +356,7 @@ abstract class Http
     /**
      * [The HTTP 416 Range Not Satisfiable response status code indicates that
      * none of the ranges in the Range header field overlap the current extent
-     * of the selected resource]
+     * of the selected resource].
      *
      * @const RANGE_NOT_SATISFIABLE
      */
@@ -367,7 +365,7 @@ abstract class Http
     /**
      * [The HTTP 417 Expectation Failed response status code indicates that the
      * expectation given in the request's Expect header could not be met by at
-     * least one of the inbound servers]
+     * least one of the inbound servers].
      *
      * @const EXPECTATION_FAILED
      */
@@ -375,7 +373,7 @@ abstract class Http
 
     /**
      * [The HTTP 418 I'm a teapot client error response code indicates that the
-     * server refuses to brew coffee because it is a teapot]
+     * server refuses to brew coffee because it is a teapot].
      *
      * @const IM_A_TEAPOT
      */
@@ -383,7 +381,7 @@ abstract class Http
 
     /**
      * [The HTTP 421 Misdirected Request status code indicates that the request
-     * was directed at a server that is not able to produce a response]
+     * was directed at a server that is not able to produce a response].
      *
      * @const MISDIRECTED_REQUEST
      */
@@ -393,7 +391,7 @@ abstract class Http
      * [The HTTP 422 Unprocessable Entity response status code means the server
      * understands the content type of the request entity, and the syntax of the
      * request entity is correct, but it was unable to process the contained
-     * instructions]
+     * instructions].
      *
      * @const UNPROCESSABLE_ENTITY
      */
@@ -401,7 +399,7 @@ abstract class Http
 
     /**
      * [The HTTP 423 Locked status code means the resource that is being
-     * accessed is locked]
+     * accessed is locked].
      *
      * @const LOCKED
      */
@@ -409,7 +407,7 @@ abstract class Http
 
     /**
      * [The HTTP 424 Failed Dependency status code means that the request failed
-     * because it depended on another request and that request failed]
+     * because it depended on another request and that request failed].
      *
      * @const FAILED_DEPENDENCY
      */
@@ -417,7 +415,7 @@ abstract class Http
 
     /**
      * [The HTTP 425 Too Early status code indicates that the server is
-     * unwilling to risk processing a request that might be replayed]
+     * unwilling to risk processing a request that might be replayed].
      *
      * @const TOO_EARLY
      */
@@ -426,7 +424,7 @@ abstract class Http
     /**
      * [The HTTP 426 Upgrade Required response code indicates that the server
      * refuses to perform the request using the current protocol but might be
-     * willing to do so after the client upgrades to a different protocol]
+     * willing to do so after the client upgrades to a different protocol].
      *
      * @const UPGRADE_REQUIRED
      */
@@ -434,7 +432,7 @@ abstract class Http
 
     /**
      * [The HTTP 428 Precondition Required status code indicates that the origin
-     * server requires the request to be conditional]
+     * server requires the request to be conditional].
      *
      * @const PRECONDITION_REQUIRED
      */
@@ -443,7 +441,7 @@ abstract class Http
     /**
      * [The HTTP 429 Too Many Requests response status code indicates that the
      * user has sent too many requests in a given amount of time
-     * ("rate limiting")]
+     * ("rate limiting")].
      *
      * @const TOO_MANY_REQUESTS
      */
@@ -452,7 +450,7 @@ abstract class Http
     /**
      * [The HTTP 431 Request Header Fields Too Large response status code
      * indicates that the server is unwilling to process the request because its
-     * header fields are too large]
+     * header fields are too large].
      *
      * @const REQUEST_HEADER_FIELDS_TOO_LARGE
      */
@@ -461,7 +459,7 @@ abstract class Http
     /**
      * [The HTTP 451 Unavailable For Legal Reasons client error response code
      * indicates that the user requested a resource that is not available due to
-     * legal reasons]
+     * legal reasons].
      *
      * @const UNAVAILABLE_FOR_LEGAL_REASONS
      */
@@ -469,7 +467,7 @@ abstract class Http
 
     /**
      * [The HTTP 499 Client Closed Request response status code is used when the
-     * client closes the connection before the server answers the request]
+     * client closes the connection before the server answers the request].
      *
      * @const CLIENT_CLOSED_REQUEST
      */
@@ -478,7 +476,7 @@ abstract class Http
     /**
      * [The HTTP 500 Internal Server Error response status code indicates that
      * the server encountered an unexpected condition that prevented it from
-     * fulfilling the request]
+     * fulfilling the request].
      *
      * @public const INTERNAL_SERVER_ERROR
      */
@@ -487,7 +485,7 @@ abstract class Http
     /**
      * [The HTTP 501 Not Implemented server error response code means that the
      * server does not support the functionality required to fulfill the
-     * request]
+     * request].
      *
      * @const NOT_IMPLEMENTED
      */
@@ -497,7 +495,7 @@ abstract class Http
      * [The HTTP 502 Bad Gateway server error response code indicates that the
      * server, while acting as a gateway or proxy, received an invalid response
      * from the inbound server it accessed while attempting to fulfill the
-     * request]
+     * request].
      *
      * @const BAD_GATEWAY
      */
@@ -505,7 +503,7 @@ abstract class Http
 
     /**
      * [The HTTP 503 Service Unavailable server error response code indicates
-     * that the server is not ready to handle the request]
+     * that the server is not ready to handle the request].
      *
      * @const SERVICE_UNAVAILABLE
      */
@@ -515,7 +513,7 @@ abstract class Http
      * [The HTTP 504 Gateway Timeout server error response code indicates that
      * the server, while acting as a gateway or proxy, did not get a response in
      * time from the upstream server that it needed in order to complete the
-     * request]
+     * request].
      *
      * @const GATEWAY_TIMEOUT
      */
@@ -524,7 +522,7 @@ abstract class Http
     /**
      * [The HTTP 505 HTTP Version Not Supported server error response code
      * indicates that the server does not support the HTTP protocol version used
-     * in the request]
+     * in the request].
      *
      * @const VERSION_NOT_SUPPORTED
      */
@@ -535,7 +533,7 @@ abstract class Http
      * indicates that the server has an internal configuration error: the chosen
      * variant resource is configured to engage in transparent content
      * negotiation itself, and is therefore not a proper end point in the
-     * negotiation process]
+     * negotiation process].
      *
      * @const VARIANT_ALSO_NEGOTIATES
      */
@@ -544,7 +542,7 @@ abstract class Http
     /**
      * [The HTTP 507 Insufficient Storage server error response code indicates
      * that the server is unable to store the representation needed to complete
-     * the request]
+     * the request].
      *
      * @const INSUFFICIENT_STORAGE
      */
@@ -553,7 +551,7 @@ abstract class Http
     /**
      * [The HTTP 508 Loop Detected status code indicates that the server
      * terminated an operation because it encountered an infinite loop while
-     * processing a request with "Depth: infinity"]
+     * processing a request with "Depth: infinity"].
      *
      * @const LOOP_DETECTED
      */
@@ -562,7 +560,7 @@ abstract class Http
     /**
      * [The HTTP 510 Not Extended server error response code indicates that
      * further extensions to the request are required for the server to fulfill
-     * it]
+     * it].
      *
      * @const NOT_EXTENDED
      */
@@ -570,7 +568,7 @@ abstract class Http
 
     /**
      * [The HTTP 511 Network Authentication Required server error response code
-     * indicates that the client needs to authenticate to gain network access]
+     * indicates that the client needs to authenticate to gain network access].
      *
      * @const NETWORK_AUTHENTICATION_REQUIRED
      */
@@ -579,7 +577,7 @@ abstract class Http
     /**
      * [The HTTP 599 Network Connect Timeout Error status code is used to
      * indicate network connection timeout beyond the control of the client or
-     * server]
+     * server].
      *
      * @const NETWORK_CONNECT_TIMEOUT_ERROR
      */
@@ -587,7 +585,7 @@ abstract class Http
 
     /**
      * [The GET method requests a representation of the specified resource
-     * Requests using GET should only retrieve data]
+     * Requests using GET should only retrieve data].
      *
      * @const GET
      */
@@ -595,7 +593,7 @@ abstract class Http
 
     /**
      * [The HEAD method asks for a response identical to a GET request, but
-     * without the response body]
+     * without the response body].
      *
      * @const HEAD
      */
@@ -603,7 +601,7 @@ abstract class Http
 
     /**
      * [The POST method submits an entity to the specified resource, often
-     * causing a change in state or side effects on the server]
+     * causing a change in state or side effects on the server].
      *
      * @const POST
      */
@@ -611,14 +609,14 @@ abstract class Http
 
     /**
      * [The PUT method replaces all current representations of the target
-     * resource with the request payload]
+     * resource with the request payload].
      *
      * @const PUT
      */
     public const string PUT = 'PUT';
 
     /**
-     * [The DELETE method deletes the specified resource]
+     * [The DELETE method deletes the specified resource].
      *
      * @const DELETE
      */
@@ -626,7 +624,7 @@ abstract class Http
 
     /**
      * [The CONNECT method establishes a tunnel to the server identified by the
-     * target resource]
+     * target resource].
      *
      * @const CONNECT
      */
@@ -634,7 +632,7 @@ abstract class Http
 
     /**
      * [The OPTIONS method describes the communication options for the target
-     * resource]
+     * resource].
      *
      * @const OPTIONS
      */
@@ -642,14 +640,14 @@ abstract class Http
 
     /**
      * [The TRACE method performs a message loop-back test along the path to the
-     * target resource]
+     * target resource].
      *
      * @const TRACE
      */
     public const string TRACE = 'TRACE';
 
     /**
-     * [The PATCH method applies partial modifications to a resource]
+     * [The PATCH method applies partial modifications to a resource].
      *
      * @const PATCH
      */
