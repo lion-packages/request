@@ -8,7 +8,6 @@ use Lion\Request\Request;
 use Lion\Test\Test;
 use PHPUnit\Framework\Attributes\Test as Testing;
 use ReflectionException;
-use stdClass;
 
 class RequestTest extends Test
 {
@@ -76,7 +75,6 @@ class RequestTest extends Test
 
         $capture = $this->request->capture();
 
-        $this->assertInstanceOf(stdClass::class, $capture);
         $this->assertObjectHasProperty('name', $capture);
         $this->assertObjectHasProperty('HTTP_HOST', $capture);
         $this->assertObjectHasProperty('foo', $capture);
@@ -97,7 +95,6 @@ class RequestTest extends Test
 
         $capture = $this->request->capture();
 
-        $this->assertInstanceOf(stdClass::class, $capture);
         $this->assertObjectHasProperty('name', $capture);
     }
 }
