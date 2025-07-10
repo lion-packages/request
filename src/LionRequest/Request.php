@@ -14,7 +14,7 @@ use stdClass;
 class Request
 {
     /**
-     * [Defines the value of the input]
+     * Defines the value of the input
      *
      * @var string|null $input
      */
@@ -22,9 +22,9 @@ class Request
 
     /**
      * This getInput method retrieves and returns the full body of the incoming
-     * HTTP request. It uses file_get_contents('php://input') to read the raw
-     * data sent to the server, which is useful for handling requests with data
-     * in formats like JSON or XML in PHP applications
+     * HTTP request. It uses file_get_contents('php://input') to read the raw data
+     * sent to the server, which is useful for handling requests with data in
+     * formats like JSON or XML in PHP applications
      *
      * @return string
      */
@@ -51,6 +51,7 @@ class Request
                 ...$_FILES,
                 ...$_GET,
                 ...$_SERVER,
+                ...$_COOKIE,
             ];
         }
 
