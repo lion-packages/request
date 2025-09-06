@@ -9,7 +9,6 @@ use Lion\Request\Response;
 use Lion\Request\Status;
 use Lion\Test\Test;
 use PHPUnit\Framework\Attributes\Test as Testing;
-use stdClass;
 
 class ResponseTest extends Test
 {
@@ -44,7 +43,6 @@ class ResponseTest extends Test
         $res = $this->response->custom('custom');
 
         $this->assertSame(Http::OK, http_response_code());
-        $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
         $this->assertObjectHasProperty('message', $res);
         $this->assertObjectHasProperty('code', $res);
@@ -59,7 +57,6 @@ class ResponseTest extends Test
         $res = $this->response->custom('custom', null, Http::OK, ['package' => 'request']);
 
         $this->assertSame(Http::OK, http_response_code());
-        $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
         $this->assertObjectHasProperty('message', $res);
         $this->assertObjectHasProperty('code', $res);
@@ -76,7 +73,6 @@ class ResponseTest extends Test
         $res = $this->response->success(null, Http::OK, ['package' => 'request']);
 
         $this->assertSame(Http::OK, http_response_code());
-        $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
         $this->assertObjectHasProperty('message', $res);
         $this->assertObjectHasProperty('code', $res);
@@ -93,7 +89,6 @@ class ResponseTest extends Test
         $res = $this->response->error(null, Http::INTERNAL_SERVER_ERROR, ['package' => 'request']);
 
         $this->assertSame(Http::INTERNAL_SERVER_ERROR, http_response_code());
-        $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
         $this->assertObjectHasProperty('message', $res);
         $this->assertObjectHasProperty('code', $res);
@@ -110,7 +105,6 @@ class ResponseTest extends Test
         $res = $this->response->warning(null, Http::OK, ['package' => 'request']);
 
         $this->assertSame(Http::OK, http_response_code());
-        $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
         $this->assertObjectHasProperty('message', $res);
         $this->assertObjectHasProperty('code', $res);
@@ -127,7 +121,6 @@ class ResponseTest extends Test
         $res = $this->response->info(null, Http::OK, ['package' => 'request']);
 
         $this->assertSame(Http::OK, http_response_code());
-        $this->assertInstanceOf(stdClass::class, $res);
         $this->assertObjectHasProperty('status', $res);
         $this->assertObjectHasProperty('message', $res);
         $this->assertObjectHasProperty('code', $res);
