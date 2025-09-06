@@ -31,6 +31,7 @@ class ResponseTest extends Test
             Status::ROUTE_ERROR,
             Status::SESSION_ERROR,
             Status::RULE_ERROR,
+            Status::RULES_ERROR,
             Status::AUTHENTICATION_ERROR,
         ];
 
