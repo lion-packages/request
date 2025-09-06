@@ -38,11 +38,11 @@ class Response
      * @param mixed $response Message or content to view.
      * @param bool $isJson Determines with a boolean if it is a JSON object.
      *
-     * @return void
+     * @return never
      *
      * @codeCoverageIgnore
      */
-    public static function finish(mixed $response, bool $isJson = true): void
+    public static function finish(mixed $response, bool $isJson = true): never
     {
         die($isJson ? json_encode($response) : $response);
     }
