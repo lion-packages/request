@@ -3,4 +3,3 @@
 /tests/build/
 .phpunit.result.cache
 /.phplint.cache/
-composer.lock
