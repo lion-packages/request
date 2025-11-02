@@ -13,9 +13,6 @@ class RequestTest extends Test
 {
     private Request $request;
 
-    /**
-     * @throws ReflectionException
-     */
     protected function setUp(): void
     {
         $this->request = new Request();
@@ -24,7 +21,8 @@ class RequestTest extends Test
     }
 
     /**
-     * @throws ReflectionException
+     * @throws ReflectionException If the property does not exist in the reflected
+     * class.
      */
     public function tearDown(): void
     {
@@ -32,7 +30,7 @@ class RequestTest extends Test
     }
 
     /**
-     * @throws ReflectionException
+     * @throws ReflectionException If the method does not exist.
      */
     #[Testing]
     public function getInput(): void
