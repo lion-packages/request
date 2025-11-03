@@ -41,18 +41,11 @@ class Request
      */
     public static function capture(): stdClass
     {
-        $input = self::getInput();
+        $inputData = self::getInput();
 
-        if (empty($input)) {
-            return (object) [
-                ...$_POST,
-                ...$_FILES,
-                ...$_GET,
-                ...$_SERVER,
-                ...$_COOKIE,
-            ];
-        }
+        /** @var array<int|string, mixed> $extraData */
+        $extraData = $inputData ? json_decode($inputData, true) : [];
 
-        return (object) json_decode($input, true);
+        return (object) array_merge($_POST, $_FILES, $_GET, $_SERVER, $_COOKIE, $extraData);
     }
 }
