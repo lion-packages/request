@@ -739,16 +739,16 @@
         },
         {
             "name": "lion/test",
-            "version": "v3.12.0",
+            "version": "v3.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lion-packages/test.git",
-                "reference": "1fe74a2abb86a32f9bc9c53287b192023222a7c3"
+                "reference": "125e0bb33e4e84ecc8ca12dce04b8c19ed081217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lion-packages/test/zipball/1fe74a2abb86a32f9bc9c53287b192023222a7c3",
-                "reference": "1fe74a2abb86a32f9bc9c53287b192023222a7c3",
+                "url": "https://api.github.com/repos/lion-packages/test/zipball/125e0bb33e4e84ecc8ca12dce04b8c19ed081217",
+                "reference": "125e0bb33e4e84ecc8ca12dce04b8c19ed081217",
                 "shasum": ""
             },
             "require": {
@@ -784,7 +784,7 @@
                 "issues": "https://github.com/lion-packages/test/issues",
                 "source": "https://github.com/lion-packages/test"
             },
-            "time": "2025-11-01T14:29:09+00:00"
+            "time": "2025-12-01T13:31:59+00:00"
         },
         {
             "name": "marc-mabe/php-enum",
