@@ -53,7 +53,8 @@ class Response
      * @param string $status The type of status on the object.
      * @param string|null $message Message inside the object.
      * @param int $code HTTP status code inside the object.
-     * @param mixed $data Extra data inside the object.
+     * @param array<mixed>|bool|float|int|null|object|string $data Extra data inside
+     * the object.
      *
      * @return stdClass
      */
@@ -61,7 +62,7 @@ class Response
         string $status,
         ?string $message = null,
         int $code = Http::OK,
-        mixed $data = null
+        array|bool|float|int|null|object|string $data = null
     ): stdClass {
         http_response_code($code);
 
@@ -83,12 +84,16 @@ class Response
      *
      * @param string|null $message Message inside the object.
      * @param int $code HTTP status code inside the object.
-     * @param mixed $data Extra data inside the object.
+     * @param array<mixed>|bool|float|int|null|object|string $data Extra data inside
+     * the object.
      *
      * @return stdClass
      */
-    public static function success(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
-    {
+    public static function success(
+        ?string $message = null,
+        int $code = Http::OK,
+        array|bool|float|int|null|object|string $data = null
+    ): stdClass {
         return self::custom(Status::SUCCESS, $message, $code, $data);
     }
 
@@ -97,7 +102,8 @@ class Response
      *
      * @param string|null $message Message inside the object.
      * @param int $code HTTP status code inside the object.
-     * @param mixed $data Extra data inside the object.
+     * @param array<mixed>|bool|float|int|null|object|string $data Extra data inside
+     * the object.
      *
      * @return stdClass
      */
@@ -114,12 +120,16 @@ class Response
      *
      * @param string|null $message Message inside the object.
      * @param int $code HTTP status code inside the object.
-     * @param mixed $data Extra data inside the object.
+     * @param array<mixed>|bool|float|int|null|object|string $data Extra data inside
+     * the object.
      *
      * @return stdClass
      */
-    public static function warning(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
-    {
+    public static function warning(
+        ?string $message = null,
+        int $code = Http::OK,
+        array|bool|float|int|null|object|string $data = null
+    ): stdClass {
         return self::custom(Status::WARNING, $message, $code, $data);
     }
 
@@ -128,12 +138,16 @@ class Response
      *
      * @param string|null $message Message inside the object.
      * @param int $code HTTP status code inside the object.
-     * @param mixed $data Extra data inside the object.
+     * @param array<mixed>|bool|float|int|null|object|string $data Extra data inside
+     * the object.
      *
      * @return stdClass
      */
-    public static function info(?string $message = null, int $code = Http::OK, mixed $data = null): stdClass
-    {
+    public static function info(
+        ?string $message = null,
+        int $code = Http::OK,
+        array|bool|float|int|null|object|string $data = null
+    ): stdClass {
         return self::custom(Status::INFO, $message, $code, $data);
     }
 }

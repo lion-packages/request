@@ -131,10 +131,10 @@ jobs:
         run: php -d memory_limit=-1 vendor/bin/phpcs --standard=PSR12 tests
 
       - name: PHPStan (Src)
-        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max src
+        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level 10 src
 
       - name: PHPStan (Tests)
-        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level max tests
+        run: php -d memory_limit=-1 vendor/bin/phpstan analyse --level 10 tests
 
   tests-phpunit:
     runs-on: ubuntu-latest
